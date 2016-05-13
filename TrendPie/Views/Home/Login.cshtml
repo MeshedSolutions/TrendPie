@@ -1,0 +1,46 @@
+﻿@model TrendPie.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="formwrapper whiteBack">
+        <div>
+            <input name="email" type="text" placeholder="Email" class="txtInput" />
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <input name="password" type="password" placeholder="Password" class="txtInput">
+        </div>
+    </div>
+    <div class="formwrapper">
+        <div>
+            <input type="submit" value="Sign in" class="bttnSignIn">
+        </div>
+    </div>
+}
+
+<div class="formwrapper">
+    <div class="bttnPassword">
+        @Html.ActionLink("Forgot Password?", "Index")
+    </div>
+</div>
+<div class="bg_createacct">
+    <div class="formwrapper">
+        <div class="Qcreateaccount">
+            Don't have an account?
+        </div>
+        <div class="bttnCreateAccount">
+            @Html.ActionLink("Create An Account", "Register")
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

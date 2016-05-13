@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="gradient30">
+    <div class="db_earnWrapper">
+        <div class="db_earnAmount thirtyfour">
+            $14,250
+            @*{{allTime}}*@
+            <div class="earnLabel">
+                earned all time
+            </div>
+        </div>
+        <div class="db_earnAmount">
+            $645
+            @*{{past30days}}*@
+            <div class="earnLabel">
+                past 30 days
+            </div>
+        </div>
+        <div class="db_earnAmount">
+            $120
+            @*{{past7days}}*@
+            <div class="earnLabel">
+                past 7 days
+            </div>
+        </div>
+    </div>
+    <div class="clearme"></div>
+    <div class="db_chartWrap">
+        <div class="chartContent">
+            chart area
+        </div>
+    </div>
+    <div class="db_tabWrap1">
+        Live Now
+    </div>
+    <div class="clearme"></div>
+    <div class="db_liveWrap">
+        <div class="db_liveWrapInner">
+            <div class="db_liveContentWrap">
+                @*{{> campaignLiveList}}*@
+            </div>
+        </div>
+    </div>
+    <div class="clearme"></div>
+    <div class="db_blueWrap">
+        <div class="db_tabWrap2">
+            Completed
+        </div>
+        <div class="clearme"></div>
+    </div>
+    <div class="clearme"></div>
+    <div class="grayBack">
+        <div class="campaignContentWrap">
+            @*{{> campaignInfluencerCompleteList }}*@
+        </div>
+    </div>
+</div>
+

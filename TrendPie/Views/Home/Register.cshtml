@@ -1,0 +1,115 @@
+﻿@model TrendPie.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="formwrapper">
+    <h1>Account Creation</h1>
+    <div class="lblRequired">
+        *indicates required
+    </div>
+</div>
+<div class="clearme"></div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="formwrapper whiteBack">
+        <div>
+            @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "txtInput", placeholder = "First Name*"}})
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.LastName, new {htmlAttribues = new {@class = "txtInput", placeholder = "Last Name*"}})
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "txtInput", placeholder = "DOB*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "txtInput", placeholder = "Email*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.PayPalEmail, new { htmlAttributes = new { @class = "txtInput", placeholder = "PayPal Email*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "txtInput", placeholder = "Address*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "txtInput", placeholder = "Address 2" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "txtInput", placeholder = "Country*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "txtInput", placeholder = "State*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "txtInput", placeholder = "Zip*" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <div>
+                @Html.DropDownListFor(
+                    model => model.Gender,
+                    new SelectList(
+                        new List<Object>
+                        {
+                            new { value = "", text = "Select Gender"},
+                            new { value = "male", text = "Male"},
+                            new { value = "femail", text = "Femail"}
+                        },
+                        "value",
+                        "text"
+                    )
+                )
+            </div>
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.PasswordFor(model => model.Password, new { htmlAttribues = new { @class = "txtInput", placeholder = "Password*"}})
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttribues = new { @class = "txtInput", placeholder = "Confirm Password" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <div>
+                @Html.DropDownListFor(
+                    model => model.PreferredContact,
+                    new SelectList(
+                        new List<Object>
+                        {
+                            new { value = "", text = "Preferred Contact*"},
+                            new { value = "email", text = "Email"},
+                            new { value = "text", text = "Text"}
+                        },
+                        "value",
+                        "text"
+                    )
+                )
+            </div>
+        </div>
+        <div class="fieldSeperator"></div>
+        <div class="checkboxWrapper">
+            @Html.CheckBoxFor(model => model.Agree) Yes, I have read and agree to the terms and conditions and privacy policy
+        </div>
+        <div class="fieldSeperator"></div>
+    </div>
+    <div class="bg_createacct">
+        <div class="formwrapper">
+            <input type="submit" value="Create Account" class="bttnRegister" />
+            <div class="bttnArrow"></div>
+        </div>
+    </div>
+    <div class="clearme"></div>
+}

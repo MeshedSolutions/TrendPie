@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <meta name="viewport" content="width=device-width" />
+
+    <div class="parentWrapper bgimgOne">
+        <div class="topWrapper100">
+            <div class="space10"></div>
+            <div class="logoLG"></div>
+        </div>
+        <div class="clearme"></div>
+        <div class="space150"></div>
+        <div id="main">
+            @RenderBody()
+            <div class="clearme"></div>
+        </div>
+        <div class="clearme"></div>
+        <footer>
+            <div class="footerWrap100">
+                <div class="footerContentRow">
+                    <div class="iconPhone"></div>
+                    +1 401 659 6668
+                </div>
+                <div class="footerContentRow">
+                    <div class="iconMail"></div>
+                    Hello@TrendPie.com
+                </div>
+                <div class="clearme"></div>
+                <div class="legalese">Copyright © 2016, Trend Pie, LLC.</div>
+            </div>
+            <div class="clearme"></div>
+        </footer>
+        <div class="clearme"></div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
