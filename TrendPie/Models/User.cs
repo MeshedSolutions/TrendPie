@@ -14,6 +14,13 @@ namespace TrendPie.Models
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.UserCampaigns = new HashSet<UserCampaign>();
+            this.SocialMediaAccounts = new HashSet<SocialMediaAccount>();
+        }
+    
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -31,5 +38,10 @@ namespace TrendPie.Models
         public string Password { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string Role { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserCampaign> UserCampaigns { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SocialMediaAccount> SocialMediaAccounts { get; set; }
     }
 }

@@ -28,5 +28,6 @@ namespace TrendPie.Models
         public virtual DbSet<Campaign> Campaigns { get; set; }
         public virtual DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserCampaign> UserCampaigns { get; set; }
     }
 }

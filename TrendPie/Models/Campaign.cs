@@ -14,6 +14,12 @@ namespace TrendPie.Models
     
     public partial class Campaign
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Campaign()
+        {
+            this.UserCampaigns = new HashSet<UserCampaign>();
+        }
+    
         public int Id { get; set; }
         public string Client { get; set; }
         public string Name { get; set; }
@@ -26,5 +32,8 @@ namespace TrendPie.Models
         public string Active { get; set; }
         public string Status { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserCampaign> UserCampaigns { get; set; }
     }
 }

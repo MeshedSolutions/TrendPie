@@ -12,18 +12,16 @@ namespace TrendPie.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SocialMediaAccount
+    public partial class UserCampaign
     {
         public int Id { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public string AccountType { get; set; }
-        public string UserName { get; set; }
-        public string ProfileName { get; set; }
-        public Nullable<int> NumberOfTweets { get; set; }
-        public Nullable<int> NumberOfFollowering { get; set; }
-        public Nullable<int> NumberOfFollowers { get; set; }
-        public Nullable<System.DateTime> DateCreated { get; set; }
+        public int UserID { get; set; }
+        public int CampaignID { get; set; }
+        public Nullable<decimal> AmountEarned { get; set; }
+        public System.DateTime DateJoined { get; set; }
+        public System.DateTime DateCreated { get; set; }
     
+        public virtual Campaign Campaign { get; set; }
         public virtual User User { get; set; }
     }
 }

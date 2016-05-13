@@ -153,8 +153,12 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>TrendPie.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserCampaign.cs">
+      <DependentUpon>TrendPie.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CampaignRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

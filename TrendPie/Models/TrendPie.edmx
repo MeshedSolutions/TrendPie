@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TrendPie_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TrendPie_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Campaign">
           <Key>
             <PropertyRef Name="Id" />
@@ -58,13 +58,72 @@
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="UserCampaign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CampaignID" Type="int" Nullable="false" />
+          <Property Name="AmountEarned" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DateJoined" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SocialMediaAccount_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SocialMediaAccount" Type="Self.SocialMediaAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMediaAccount">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCampaign_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="UserCampaign" Type="Self.UserCampaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCampaign">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCampaign_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserCampaign" Type="Self.UserCampaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCampaign">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TrendPie_ModelStoreContainer">
           <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SocialMediaAccount" EntityType="Self.SocialMediaAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCampaign" EntityType="Self.UserCampaign" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SocialMediaAccount_User" Association="Self.FK_SocialMediaAccount_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="SocialMediaAccount" EntitySet="SocialMediaAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCampaign_Campaign" Association="Self.FK_UserCampaign_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="UserCampaign" EntitySet="UserCampaign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCampaign_User" Association="Self.FK_UserCampaign_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCampaign" EntitySet="UserCampaign" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TrendPie_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -84,6 +143,7 @@
           <Property Name="Active" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserCampaigns" Relationship="TrendPie_Model.FK_UserCampaign_Campaign" FromRole="Campaign" ToRole="UserCampaign" />
         </EntityType>
         <EntityType Name="SocialMediaAccount">
           <Key>
@@ -98,6 +158,7 @@
           <Property Name="NumberOfFollowering" Type="Int32" />
           <Property Name="NumberOfFollowers" Type="Int32" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="TrendPie_Model.FK_SocialMediaAccount_User" FromRole="SocialMediaAccount" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -120,12 +181,76 @@
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserCampaigns" Relationship="TrendPie_Model.FK_UserCampaign_User" FromRole="User" ToRole="UserCampaign" />
+          <NavigationProperty Name="SocialMediaAccounts" Relationship="TrendPie_Model.FK_SocialMediaAccount_User" FromRole="User" ToRole="SocialMediaAccount" />
         </EntityType>
         <EntityContainer Name="TrendPie_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Campaigns" EntityType="Self.Campaign" />
           <EntitySet Name="SocialMediaAccounts" EntityType="Self.SocialMediaAccount" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserCampaigns" EntityType="TrendPie_Model.UserCampaign" />
+          <AssociationSet Name="FK_UserCampaign_Campaign" Association="TrendPie_Model.FK_UserCampaign_Campaign">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="UserCampaign" EntitySet="UserCampaigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCampaign_User" Association="TrendPie_Model.FK_UserCampaign_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserCampaign" EntitySet="UserCampaigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialMediaAccount_User" Association="TrendPie_Model.FK_SocialMediaAccount_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SocialMediaAccount" EntitySet="SocialMediaAccounts" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="UserCampaign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CampaignID" Type="Int32" Nullable="false" />
+          <Property Name="AmountEarned" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DateJoined" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Campaign" Relationship="TrendPie_Model.FK_UserCampaign_Campaign" FromRole="UserCampaign" ToRole="Campaign" />
+          <NavigationProperty Name="User" Relationship="TrendPie_Model.FK_UserCampaign_User" FromRole="UserCampaign" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserCampaign_Campaign">
+          <End Type="TrendPie_Model.Campaign" Role="Campaign" Multiplicity="1" />
+          <End Type="TrendPie_Model.UserCampaign" Role="UserCampaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCampaign">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCampaign_User">
+          <End Type="TrendPie_Model.User" Role="User" Multiplicity="1" />
+          <End Type="TrendPie_Model.UserCampaign" Role="UserCampaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCampaign">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialMediaAccount_User">
+          <End Type="TrendPie_Model.User" Role="User" Multiplicity="0..1" />
+          <End Type="TrendPie_Model.SocialMediaAccount" Role="SocialMediaAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMediaAccount">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -185,6 +310,18 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCampaigns">
+            <EntityTypeMapping TypeName="TrendPie_Model.UserCampaign">
+              <MappingFragment StoreEntitySet="UserCampaign">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateJoined" ColumnName="DateJoined" />
+                <ScalarProperty Name="AmountEarned" ColumnName="AmountEarned" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
