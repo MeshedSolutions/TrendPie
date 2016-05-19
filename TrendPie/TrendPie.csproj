@@ -170,6 +170,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\bgimg--gradient30.png" />
+    <Content Include="images\bgimg--mMain.jpg" />
+    <Content Include="images\bgimg--vertacctgradient.png" />
+    <Content Include="images\icon--accept.png" />
+    <Content Include="images\icon--arrow.png" />
+    <Content Include="images\icon--arrowBlue.png" />
+    <Content Include="images\icon--arrowWhite.png" />
+    <Content Include="images\icon--decline.png" />
+    <Content Include="images\icon--edit.png" />
+    <Content Include="images\icon--mail.png" />
+    <Content Include="images\icon--phone.png" />
+    <Content Include="images\icon--plus.png" />
+    <Content Include="images\icon--twitter.png" />
+    <Content Include="images\img--chart.jpg" />
+    <Content Include="images\img--close.png" />
+    <Content Include="images\img--menu.png" />
+    <Content Include="images\logo--TrendPie.png" />
+    <Content Include="images\logo--TrendPieLG.png" />
     <Content Include="Models\TrendPie.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TrendPie.edmx</DependentUpon>
@@ -194,6 +212,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.cycle.all.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

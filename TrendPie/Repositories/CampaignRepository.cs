@@ -14,6 +14,20 @@ namespace TrendPie.Repositories
                 return db.Campaigns.ToList();
             }
         }
+        public static List<Campaign> GetTop5ActiveLive()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Active == "true" && i.Status == "live").Take(5).ToList();
+            }
+        }
+        public static List<Campaign> GetTop5ActiveComplete()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Active == "true" && i.Status == "complete").Take(5).ToList();
+            }
+        }
         public static Campaign GetById(int campaignId)
         {
             using (var db = new TrendPie_Entities())

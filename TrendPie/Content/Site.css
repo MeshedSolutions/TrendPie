@@ -400,7 +400,7 @@ text-transform:uppercase !important;
 {
 width:13px;
 height:30px;
-background: url('images/icon--arrowBlue.png') no-repeat top center;
+background: url('../images/icon--arrowBlue.png') no-repeat top center;
 position: relative;
 float: right;
 margin:-5px 30px 0 0;
@@ -440,7 +440,7 @@ height:40px;
 background: red;
 position: relative;
 float: left;
-background: url('images/icon--phone.png') no-repeat top center;
+background: url('../images/icon--phone.png') no-repeat top center;
 }
 
 .iconMail
@@ -450,7 +450,7 @@ height:40px;
 background: red;
 position: relative;
 float: left;
-background: url('images/icon--mail.png') no-repeat top center;
+background: url('../images/icon--mail.png') no-repeat top center;
 }
 
 .legalese
@@ -760,7 +760,7 @@ margin:-30px 5px 0 0;
 {
 width:36px;
 height:38px;
-background: url('images/icon--accept.png') no-repeat top center; 
+background: url('~/images/icon--accept.png') no-repeat top center; 
 float: left;
 }
 
@@ -768,7 +768,7 @@ float: left;
 {
 width:36px;
 height:38px;
-background: url('images/icon--decline.png') no-repeat top center;
+background: url('~/images/icon--decline.png') no-repeat top center;
 float:left;
 margin:0 10px 0 0;
 }
@@ -777,7 +777,7 @@ margin:0 10px 0 0;
 {
 width:41px;
 height:38px;
-background: url('images/icon--edit.png') no-repeat top center;
+background: url('~/images/icon--edit.png') no-repeat top center;
 float:left;
 margin:0 10px 0 0;
 }
@@ -818,7 +818,7 @@ Social Elements
 {
 width:34px;
 height:28px;
-background: url('images/icon--twitter.png') no-repeat top center; 
+background: url('~/images/icon--twitter.png') no-repeat top center; 
 float: left;
 }
 
@@ -955,7 +955,7 @@ border-radius:3px;
 
 .bttnViewAllArrow
 {
-background: url('images/icon--arrowWhite.png') no-repeat top center;
+background: url('../images/icon--arrowWhite.png') no-repeat top center;
 width:13px;
 height:30px;
 float: right;
@@ -982,7 +982,7 @@ text-transform:;
 {
 width:13px;
 height:30px;
-background: url('images/icon--arrowBlue.png') no-repeat top center;
+background: url('../images/icon--arrowBlue.png') no-repeat top center;
 position: relative;
 float: right;
 margin:-32px 10px 0 0;
@@ -1068,7 +1068,7 @@ display: block;
 {
 width:24px;
 height:21px;
-background: url('images/icon--plus.png') no-repeat top center; 
+background: url('~/images/icon--plus.png') no-repeat top center; 
 float: right;
 margin:-2px 10px 0 0;
 }
