@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TrendPie.Models.SocialMediaAccount>
+
+@{
+    ViewBag.Title = "Social";
+}
+
+@Html.Partial("_profileMenu")
+
+@foreach (var account in Model)
+{
+    <div class="socialStatWrap">
+        <div class="socialStat">
+            @account.NumberOfTweets
+            <div class="socialStatLabel">
+                TWEETS
+            </div>
+        </div>
+        <div class="socialStat">
+            @account.NumberOfFollowering
+            <div class="socialStatLabel">
+                FOLLOWING
+            </div>
+        </div>
+        <div class="socialStat thirtyfour">
+            @account.NumberOfFollowers
+            <div class="socialStatLabel">
+                FOLLOWERS
+            </div>
+        </div>
+    </div>
+    <div class="socialHeadWrap">
+        <div class="formwrapper">
+            <div class="iconTwitter"></div>
+            <div class="clearme"></div>
+            <div class="space25"></div>
+            <div class="socialMediaAvatar">
+                <img src="" />
+            </div>
+        </div>
+        <div class="socialUserWrap">
+            <div>
+                @account.UserName
+            </div>
+            <div>
+                @account.ProfileName
+            </div>
+        </div>
+    </div>
+    <div class="socialBodyWrap gradient30">
+        <div class="formwrapper">
+            <div class="bttnAddSocial">
+                <a href="#">
+                    Add Account
+                    <div class="iconPlus"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+}

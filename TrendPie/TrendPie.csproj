@@ -124,6 +124,7 @@
     <Compile Include="Controllers\CampaignsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SocialMediaAccountsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -161,6 +162,7 @@
     <Compile Include="Models\UserExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CampaignRepository.cs" />
+    <Compile Include="Repositories\SocialMediaAccountRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +259,11 @@
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Dashboard\_campaignLiveList.cshtml" />
     <Content Include="Views\Dashboard\_campaignCompleteList.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\_profileMenu.cshtml" />
+    <Content Include="Views\Profile\Wallet.cshtml" />
+    <Content Include="Views\Profile\Profile.cshtml" />
+    <Content Include="Views\Profile\Social.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
