@@ -21,7 +21,7 @@
         </div>
         <div class="fieldSeperator"></div>
         <div>
-            @Html.EditorFor(model => model.LastName, new {htmlAttribues = new {@class = "txtInput", placeholder = "Last Name*"}})
+            @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "txtInput", placeholder = "Last Name*"}})
         </div>
         <div class="fieldSeperator"></div>
         <div>
@@ -69,7 +69,8 @@
                         },
                         "value",
                         "text"
-                    )
+                    ),
+                    new { @class = "ddlInput"}
                 )
             </div>
         </div>
@@ -95,7 +96,8 @@
                         },
                         "value",
                         "text"
-                    )
+                    ),
+                    new { @class = "ddlInput"}
                 )
             </div>
         </div>
