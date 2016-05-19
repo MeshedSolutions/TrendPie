@@ -1,24 +1,1219 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@import url(http://fonts.googleapis.com/css?family=Raleway:400,900,800,700,600,500,300,200,100);
+
+
+body
+{
+font-family: 'Raleway', sans-serif;
+color: #58595B;
+background:#272E35;
+font-size: 13px;
+font-weight: 400;
+margin:0;
+line-height:18px;
+}
+  
+h1
+{
+font-size: 22px;
+font-weight: 600;
+color:#12B9D5;
+text-transform: uppercase;
+margin:5px 0 5px 0;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.grayBack {background:#272E35;}
+.whiteBack {background:#FFF;}
+.gradient30 {background: url('/images/bgimg--gradient30.png');}
+
+.parentWrapper
+{
+width:100%;
+min-width:320px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.bgimgOne
+{
+height: 100%;
+width:100%;
+background: url('/images/bgimg--mMain.jpg') no-repeat top left;
+background-size: cover;
+margin:0;
+position: relative;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.topWrapper100
+{
+width:100%;
+height:75px;
+position: absolute;
+z-index: 100;
 }
+
+.topWrapper100B
+{
+width:100%;
+height:150px;
+position: absolute;
+z-index: 100;
+}
+
+.blueNavBumper
+{
+width:100%;
+height:15px;
+background:#12B9D5;
+}
+
+.SecNavWrapper
+{
+width:100%;
+height:50px;
+background:#000;
+}
+
+.SecNavWrapper ul
+{
+list-style-type: none !important;
+margin: 0;
+padding:0;
+background-color: #000;
+}
+
+.SecNavWrapper li
+{
+width:33%;
+float: left;
+text-align: center;
+}
+
+.SecNavWrapper li a
+{
+display: block;
+color:#FFF;
+padding:20px 0 12px 0px;
+text-decoration: none;
+}
+
+.SecNavWrapper li a:active
+{
+background:#12B9D5 !important;
+color:#FFF;
+}
+
+.SecNavWrapper li a:hover:not(.active) {
+background-color: #12B9D5;
+color: white;
+}
+    .SecNavWrapper a {color:#FFF; display: block; text-decoration: none;}
+    .SecNavWrapper a.active {background: #12B9D5;}
+    .SecNavWrapper a:hover {background: #12B9D5;}
+
+.SecNavWrapperTwo
+{
+width:100%;
+height:50px;
+background:#000;
+}
+
+.SecNavWrapperTwo ul
+{
+list-style-type: none;
+margin: 0;
+padding:0px;
+background-color: #000;
+}
+
+.SecNavWrapperTwo li
+{
+width:50%;
+float: left;
+text-align: center;
+}
+
+.SecNavWrapperTwo li a
+{
+display: block;
+color:#FFF;
+padding:20px 0 12px 0px;
+text-decoration: none;
+}
+
+.SecNavWrapperTwo li a:active
+{
+background:#12B9D5 !important;
+color:#FFF;
+}
+
+.SecNavWrapperTwo li a:hover:not(.active) {
+background-color: #12B9D5;
+color: white;
+}
+    .SecNavWrapperTwo a {color:#FFF; display: block; text-decoration: none;}
+    .SecNavWrapperTwo a.active {background: #12B9D5;}
+    .SecNavWrapperTwo a:hover {background: #12B9D5;}
+
+
+.contentWrapper
+{
+
+}
+
+.userGreeting
+{
+color:#FFF;
+font-size:10px;
+width:100%;
+height:10px;
+line-height: 10px;
+margin:5px 0 0 15px;
+}
+
+.logo
+{
+height: 48px;
+width:68px;
+background: url('/images/logo--TrendPie.png') no-repeat center center;
+margin: 0 auto;
+float:right;
+position: relative;
+margin:0px 20px 0px 20px;
+}
+
+.logoLG
+{
+height: 108px;
+width:204px;
+background: url('/images/logo--TrendPieLG.png') no-repeat center center;
+margin: 0 auto;
+position: relative;
+margin:0px auto;
+}
+
+
+/*====================================
+CB Standard Style
+====================================*/
+img a {border:none !important;}
+img {border:none !important;}
+
+.clearme {clear: both;width:100%;}
+.space10 {width:100%;height:10px;}
+.space15 {width:100%;height:15px;}
+.space20 {width:100%;height:20px;}
+.space25 {width:100%;height:25px;}
+.space35 {width:100%;height:35px;}
+.space50 {width:100%;height:50px;}
+.space60 {width:100%;height:60px;}
+.space75 {width:100%;height:75px;}
+.space150 {width:100%;height:150px;}
+.relative {position:relative; padding:0 0 25px 0;}
+.thirtyfour {width:34% !important;}
+
+/*====================================
+End CB Standard Style
+====================================*/
+
+/*=========================
+Mobile Navigation Menu
+=========================*/
+
+.mnavBWrapper
+{
+width:95%;
+margin: 0 auto;
+}
+
+.SlideM .menuBtn
+{
+width:47px;
+height:29px;
+margin: 15px 5px 0 5px;
+border-radius:3px;
+cursor:pointer;
+padding:7px 5px 0 5px;
+text-align:center;
+font-weight:700;
+font-size:10px;
+text-transform:uppercase;
+background: url('/images/img--menu.png') no-repeat center center;
+position:absolute;
+z-index:19;
+}
+
+.SlideM .closeBtn
+{
+width:100px;
+height:25px;
+margin: 15px 15px 0 5px;
+cursor:pointer;
+text-align:center;
+font-weight:300;
+font-size:10px;
+text-transform:uppercase;
+padding:7px 5px 0 5px;
+position:absolute;
+z-index:25;
+}
+
+.menuWrap95
+{
+background:#000;
+width:100%;
+margin:15px 0 0 0;
+padding:0 0 0 0;
+position:relative;
+z-index:22;
+}
+
+.menuItems {
+
+margin: 0 0 0 25px;;
+margin-top: 0px;
+clear: both;
+opacity: 1;
+
+}
+
+    .menuItems a
+    {
+    color:#12B9D5;
+    font-size:18px;
+    font-weight:300;
+    text-decoration:none;
+    text-transform:uppercase;
+    display:block;
+    margin:0 0 0 0px;
+    height:45px;
+    padding:15px 0 0 0;
+    /*background:red;*/
+    }
+
+
+.ItemBorderWrap
+{
+width:auto;
+height:1px;
+padding:0 25px 0 30px;
+background: transparent;
+}
+
+.ItemBorder
+{
+width:auto;
+margin:0 0 0 0;
+height:1px;
+background:#dadada;
+}
+
+.childBorderWrap
+{
+width:auto;
+height:1px;
+padding:0 25px 0 20px;
+background: transparent;
+}
+
+.menuChildItems a
+{
+color:#dadada;
+font-size:13px;
+font-weight:600;
+text-decoration:none;
+text-transform:uppercase;
+height:100%;
+display:block;
+padding:10px 0 10px 0px;
+margin:0 0 0 30px;
+}
+
+    .childBorder
+    {
+    width:auto;
+    margin:0 0 0 0;
+    height:1px;
+    background:#12B9D5;
+    margin:0 0 0 0px;
+    }
+
+    .menuBttmBorder
+    {
+    width:100%;
+    height:50px;
+    border-bottom: 4px #12B9D5 solid;
+    background: #000 ;
+    margin:0 0 0 0;
+    bottom:0;
+    box-shadow:0px 4px 7px #bababa;
+    position: relative;
+    }
+
+.mnavWrapper
+{
+background:#303030;
+height:70px;
+}
+
+.nav
+{
+height: 65px;
+width:100%;
+margin: 0 auto;
+float:left;
+position:relative;
+}
+
+.nav a
+{
+color: #FFF;
+text-decoration: none;
+font-weight: 700;
+display:block;
+padding:10px 0 10px 15px;
+text-transform:uppercase;
+font-weight:800;
+font-size:15px;
+}
+
+.bttn a, .bttn a:visited, .bttn a:active, .bttn a:link
+{
+width:25% !important;
+min-width:77px !important;
+height:24px !important;
+border: 2px solid #fff !important;
+margin: 15px 5px 0 5px !important;
+float: left !important;
+clear: right !important;
+border-radius:3px !important;
+cursor:pointer !important;
+padding:8px 5px 0 5px !important;
+text-align:center !important;
+font-weight:700 !important;
+font-size:11px !important;
+text-transform:uppercase !important;
+}
+
+.SlideM  img
+{
+}
+
+.navArrow
+{
+width:13px;
+height:30px;
+background: url('images/icon--arrowBlue.png') no-repeat top center;
+position: relative;
+float: right;
+margin:-5px 30px 0 0;
+}
+
+/*=========================
+Mobile Navigation Menu
+=========================*/
+
+/*=========================
+Footer
+=========================*/
+
+.footerWrap100
+{
+width:100%;
+height:auto;
+min-height: 150px;
+background: #000;
+color:#FFF;
+border-top:3px solid #12B9D5;
+padding:30px 0 0 0;
+}
+
+.footerContentRow
+{
+width:100%;
+height:40px;
+margin:10px 0 10px 0;
+color:#12B9D5;
+}
+
+.iconPhone
+{
+width:50px;
+height:40px;
+background: red;
+position: relative;
+float: left;
+background: url('images/icon--phone.png') no-repeat top center;
+}
+
+.iconMail
+{
+width:50px;
+height:40px;
+background: red;
+position: relative;
+float: left;
+background: url('images/icon--mail.png') no-repeat top center;
+}
+
+.legalese
+{
+position: relative;
+color:#dadada;
+margin:15px 0 0px 10px;
+padding:0 0 10px 0;
+font-size: 10px;
+}
+
+/*=========================
+End Footer
+=========================*/
+
+/*=========================
+Dashboard
+=========================*/
+
+.db_earnWrapper
+{
+width:100%;
+height:70px;
+background:#12B9D5;
+}
+
+.db_earnAmount
+{
+width:33%;
+height:70px;
+float:left;
+color:#FFF;
+font-size: 24px;
+font-weight: 600;
+text-align: center;
+background: transparent;
+position: relative;
+padding:20px 0 0 0;
+}
+
+    .thirtyfour {width:34%;}
+
+.earnLabel
+{
+width:100%;
+position: absolute;
+bottom:0;
+height:20px;
+color:#12B9D5;
+font-size: 10px;
+font-weight: 600;
+text-transform: lowercase;
+background: #000;
+}
+
+.db_chartWrap
+{
+width:100%;
+height:auto;
+min-height:100px;
+}
+
+    .db_chartWrap img
+    {
+    width:95%;
+
+    height:auto;
+
+    }
+
+.chartContent
+{
+width:95%;
+max-width: 500px;
+height:auto;
+min-height:150px;
+padding:10px 0 10px 0;
+margin: 0 auto;
+margin-top:10px;
+margin-bottom:10px;
+background: #FFF;
+opacity: .3;
+}
+
+.db_tabWrap1
+{
+width:50%;
+height:40px;
+background:#12B9D5;
+border-radius: 0 3px 0 0;
+float: left;
+color:#FFF;
+font-size: 18px;
+font-weight: 400;
+text-align: center;
+text-transform: uppercase;
+padding:20px 0 0 0;
+margin:0 0 -2px 0;
+}
+
+.db_tabWrap2
+{
+width:50%;
+height:40px;
+background:#272E35;
+border-radius: 0 3px 0 0;
+float: left;
+color:#FFF;
+font-size: 18px;
+font-weight: 400;
+text-align: center;
+text-transform: uppercase;
+padding:15px 0 0 0;
+margin:0 0 -2px 0;
+position: relative;
+z-index: 10;
+}
+
+.db_liveWrap
+{
+width: 100%;
+height: auto;
+padding: 10px 0 20px 0;
+background: #12B9D5;
+position: relative;
+}
+
+.db_blueWrap
+{
+width: 100%;
+height: auto;
+padding: 0px 0 0px 0;
+background: #12B9D5;
+position: relative;
+}
+
+.db_liveWrapInner
+{
+width:95%;
+height:auto;
+margin:0 auto;
+margin-top:0px;
+background:#272E35;
+padding:10px 0 30px 0;
+position: relative;
+}
+ 
+.db_liveContentWrap
+{
+margin:20px 0 0 10px;
+position: relative;
+}
+
+.db_completeContentWrap
+{
+margin:0px 0 0 20px;
+padding:20px 0 0 0;
+position: relative;
+}
+
+/*=========================
+End Dashboard
+=========================*/
+
+/*=========================
+Campaign Elements
+=========================*/
+
+.campaignContentWrap
+{
+padding:20px 0 0 20px;
+position: relative;
+}
+
+.campaignOpenItemWrap
+{
+width:95%;
+height:auto;
+margin:20px 0 15px 0;
+border-bottom: 1px solid #939598;
+}
+
+.campaignName
+{
+color:#12B9D5;
+font-size: 18px;
+font-weight: 400;
+text-transform: uppercase;
+min-width:230px;
+}
+
+.campaignStart
+{
+color:#efefef;
+font-weight: 300;
+height: 15px;
+
+}
+
+.campaignEnd
+{
+color:#efefef;
+font-weight: 300;
+height: 15px;
+line-height: 15px;
+}
+
+.timeLable
+{
+color:#959596;
+font-weight: 900;
+font-size:10px;
+text-transform: uppercase;
+margin:0 10px 0 0;
+}
+
+.timeLable2
+{
+color:#959596;
+font-weight: 900;
+font-size:10px;
+text-transform: uppercase;
+margin:0 10px 0 0;
+}
+
+.affiliateLinkWrap
+{
+height:13px;
+}
+
+.affiliateLink
+{
+background: #1D2225;
+color:#dadada;
+width:100%;
+height:16px;
+line-height: 14px;
+border:none;
+border-radius: 0 5px 0 0;
+font-size: 10px;
+padding:0 0 0 5px;
+margin:0 0 0 -2px;
+}
+
+.campaignCloseItemWrap
+{
+width:95%;
+height:auto;
+margin:15px 0 15px 0;
+border-bottom: 1px solid #939598;
+}
+
+.ce_Wrap
+{
+width:auto;
+max-width:75%;
+float:left;
+}
+.campaignEarnings
+{
+color:#efefef;
+text-transform: uppercase;
+font-weight: 300;
+font-size: 13px;
+}
+
+.campaignEndWrap
+{
+width:60px;
+height:auto;
+float:right;
+margin:0 5px 0 0;
+}
+
+.campaignEndDay
+{
+color:#FFF;
+width:60px;
+height:25px;
+line-height: 25px;
+text-align: center;
+font-size: 28px;
+font-weight: 400;
+}
+
+.campaignEndMonth
+{
+color:#FFF;
+width:60px;
+height:13px;
+line-height: 13px;
+text-align: center;
+font-size: 13px;
+text-transform: uppercase;
+font-weight: 300;
+}
+
+.optWrapper
+{
+width:82px;
+height:auto;
+float:right;
+margin:-30px 5px 0 0;
+}
+
+.acceptCampaign
+{
+width:36px;
+height:38px;
+background: url('images/icon--accept.png') no-repeat top center; 
+float: left;
+}
+
+.declineCampaign
+{
+width:36px;
+height:38px;
+background: url('images/icon--decline.png') no-repeat top center;
+float:left;
+margin:0 10px 0 0;
+}
+
+.editCampaign
+{
+width:41px;
+height:38px;
+background: url('images/icon--edit.png') no-repeat top center;
+float:left;
+margin:0 10px 0 0;
+}
+
+.editWrapper
+{
+width:41px;
+height:auto;
+float:right;
+margin:-30px 5px 0 0;
+}
+
+.beginEndWrap
+{
+width:100%;
+height:25px;
+}
+
+.admin_campaignTiming
+{
+width:45%;
+height:auto;
+float:left;
+color:#efefef;
+font-size: 13px;
+
+}
+
+/*=========================
+Campaign Elements
+=========================*/
+
+/*=========================
+Social Elements
+=========================*/
+
+.iconTwitter
+{
+width:34px;
+height:28px;
+background: url('images/icon--twitter.png') no-repeat top center; 
+float: left;
+}
+
+.socialMediaAvatar
+{
+width:55px;
+height:55px;
+background:;
+border:1px solid #777;
+border-radius: 3px;
+float:left;
+position: relative;
+margin:0 10px 0 0;
+}
+
+.socialUserWrap
+{
+width:auto;
+min-width:220px;
+height:75px;
+margin:0 0 0 10px;
+color:#FFF;
+position: relative;
+}
+
+.socialHeadWrap
+{
+background:#272E35;
+padding:20px 0 20px 0;
+}
+.socialBodyWrap
+{
+height:auto;
+min-height: 200px;
+padding:20px 0 20px 0px;
+}
+
+.socialStatWrap
+{
+width:100%;
+height:70px;
+background:#12B9D5;
+}
+
+.socialStat
+{
+width:33%;
+height:70px;
+float:left;
+color:#FFF;
+font-size: 24px;
+font-weight: 600;
+text-align: center;
+background: transparent;
+position: relative;
+padding:35px 0 0 0;
+}
+
+.socialStatLabel
+{
+width:100%;
+position: absolute;
+top:0;
+height:20px;
+color:#12B9D5;
+font-size: 10px;
+font-weight: 600;
+text-transform: uppercase;
+background: #272E35;
+padding:2px 0 0 0;
+}
+
+/*=========================
+Social Elements
+=========================*/
+
+/*=========================
+Buttons
+=========================*/
+
+.bttnViewAllWrap
+{
+max-width:250px;
+height:auto;
+position: relative;
+float: right;
+color:#FFF;
+margin:0 25px 0 0;
+}
+
+.bttnViewAllWrap a
+{
+color:#FFF;
+text-decoration: none;
+}
+
+.bttnViewAllBlu
+{
+width:125px;
+height:45px;
+text-align:center;
+position: relative;
+z-index: 999;
+background:#12B9D5;
+border: 1px solid #FFF;
+border-radius:2px;
+padding:15px 0 0 0;
+}
+
+.bttnViewAllBlu a
+{
+color:#FFF;
+font-weight:400;
+text-decoration:none;
+display:block;
+padding:15px 15px 5px 15px;
+text-decoration: none;
+background:#12B9D5;
+border: 1px solid #6b6768;
+border-radius:3px;
+}
+
+.bttnViewAllBlu:hover a
+{
+color:#FFF;
+background: #000;
+transition:all 0.3s ease-in 0s;
+transition:all 0.3s ease-out 0s;
+-webkit-transition:all 0.3s ease-in 0s;
+-webkit-transition:all 0.3s ease-out 0s;
+border: 1px solid #FFF;
+border-radius:3px;
+}
+
+.bttnViewAllArrow
+{
+background: url('images/icon--arrowWhite.png') no-repeat top center;
+width:13px;
+height:30px;
+float: right;
+margin: -8px 10px 0 0;
+}
+
+.bttnRegister
+{
+width:100%;
+height:40px;
+border:none;
+margin:0 auto;
+background:transparent ;
+margin:10px 0 0px 0;
+border: 2px solid #12B9D5;
+border-radius: 1px;
+color:#12B9D5;
+font-size: 13px;
+font-weight: 600;
+text-transform:;
+}
+
+.bttnArrow
+{
+width:13px;
+height:30px;
+background: url('images/icon--arrowBlue.png') no-repeat top center;
+position: relative;
+float: right;
+margin:-32px 10px 0 0;
+}
+
+.bttnPassword
+{
+width:100%;
+height:40px;
+border:none;
+margin:0 auto;
+background:#BBBDC0 ;
+margin:10px 0 10px 0;
+border-radius: 1px;
+color:#FFF;
+font-size: 13px;
+text-align:center;
+}
+
+.bttnSignIn
+{
+width:100%;
+height:40px;
+border:none;
+margin:0 auto;
+background:#12B9D5 ;
+margin:10px 0 0px 0;
+border-radius: 1px;
+color:#FFF;
+font-size: 13px;
+text-transform:;
+}
+
+.bttnPassword a
+{
+color:#FFF;
+padding:10px 0 10px 0;
+text-decoration: none;
+display: block;
+}
+
+.bttnCreateAccount
+{
+border:1px solid #efefef;
+border-radius: 1px;
+width:100%;
+height:40px;
+color:FFF;
+text-align: center;
+padding:0px 0 0 0;
+}
+
+.bttnCreateAccount a
+{
+color: #FFF;
+padding: 10px 0 10px 0;
+text-decoration: none;
+display: block;
+}
+
+.bttnAddSocial
+{
+border:2px solid #12B9D5;
+border-radius: 1px;
+width:100%;
+height:40px;
+color:#12B9D5;
+text-align: center;
+font-weight: 600;
+padding:0px 0 0 0;
+background: transparent;
+}
+
+.bttnAddSocial a
+{
+color: #12B9D5;
+padding: 10px 0 10px 0;
+text-decoration: none;
+display: block;
+}
+
+.iconPlus
+{
+width:24px;
+height:21px;
+background: url('images/icon--plus.png') no-repeat top center; 
+float: right;
+margin:-2px 10px 0 0;
+}
+
+.walletLabel
+{
+padding:10px 0 0 10px;
+font-weight: 700;
+font-size: 11px;
+color:#777;
+}
+
+/*=========================
+End Buttons
+=========================*/
+
+
+/*==========================
+FORM ELEMENTS
+==========================*/
+
+.formwrapper
+{
+width:95%;
+margin:0 auto;
+border-radius: 1px;
+}
+
+.txtInput
+{
+width:100%;
+height:45px;
+border:none;
+padding:0 0 0 15px;
+margin:0 auto;
+}
+
+.txtInputSM
+{
+width:65%;
+height:45px;
+border:none;
+padding:0 0 0 0px;
+margin:0 0 0 -5px;
+background: #efefef;
+border-radius:3px;
+}
+
+.ddlInput
+{
+font-family: 'Raleway', sans-serif;
+width:97%;
+height:45px;
+border:none;
+padding:0 0 0 10px;
+margin:0 0 0 0px;
+color: #58595B;
+}
+
+.ddlInput3
+{
+font-family: 'Raleway', sans-serif;
+width:29%;
+height:45px;
+border:none;
+padding:0 0 0 10px;
+margin:0 0 0 -0px;
+color: #58595B;
+float:left;
+background: #efefef;
+border-radius: 3px;
+margin:0 0 0 10px;
+}
+
+.fieldSeperator
+{
+width:90%;
+height:1px;
+background: #dadada;
+margin:0 auto;
+}
+
+.bg_createacct
+{
+width:100%;
+min-height:112px;
+background: url('/images/bgimg--vertacctgradient.png') bottom center !important;
+background: transparent;
+margin:20px 0 0 0;
+}
+
+.Qcreateaccount
+{
+color:#efefef;
+text-align: center;
+font-size: 12px;
+}
+
+.checkboxWrapper
+{
+width:90%;
+height:55px;
+margin:0 Auto;
+margin-top:5px; 
+}
+
+.lblWrapper
+{
+width:95%;
+height:10px;
+margin:0 Auto;
+margin:5px 0 5px 10px; 
+font-weight: 700;
+}
+
+.lblRequired
+{
+position: relative;
+color:#dadada;
+margin:15px 0 0px 10px;
+padding:0 0 0px 0;
+font-size: 11px;
+float: right;
+}
+
+.bttnFileUpload
+{
+width:120px;
+height:40px;
+border:1px solid #efefef;
+border-radius: 3px;
+background:#12B9D5;
+padding:15px 15px 15px 15px;
+color:#FFF;
+}
+
+.bttnFileUpload a {color:#FFF; text-decoration: none;} 
+
+.genericWrapper
+{
+width:100%;
+height:55px;
+margin:0 0 0 15px;
+}
+
+/*==========================
+END FORM ELEMENTS
+==========================*/

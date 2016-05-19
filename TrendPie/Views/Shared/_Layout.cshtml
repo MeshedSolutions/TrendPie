@@ -26,7 +26,7 @@
                         </div>
                         <div class="space60"></div>
 
-                        <div class="menuItems"><a href="~/dashboard/index">Dashboard<div class="navArrow"></div></a></div>
+                        <div class="menuItems">@Html.ActionLink("Dashboard", "Index", "Dashboard")<div class='navArrow'></div></div>
                         <div class="childBorderWrap"><div class="childBorder"></div></div>
 
                         <div class="menuItems"><a href="{{pathFor 'campaignPending'}}">Campaigns<div class="navArrow"></div></a></div>
@@ -71,7 +71,6 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

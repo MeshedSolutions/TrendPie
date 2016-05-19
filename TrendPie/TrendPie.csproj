@@ -132,6 +132,8 @@
     <Compile Include="Models\Campaign.cs">
       <DependentUpon>TrendPie.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CampaignExtension.cs" />
+    <Compile Include="Models\DashboardIndexViewModel.cs" />
     <Compile Include="Models\SocialMediaAccount.cs">
       <DependentUpon>TrendPie.tt</DependentUpon>
     </Compile>
@@ -234,6 +236,8 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Dashboard\_campaignLiveList.cshtml" />
+    <Content Include="Views\Dashboard\_campaignCompleteList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

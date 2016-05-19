@@ -8,6 +8,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <meta name="viewport" content="width=device-width" />
@@ -41,6 +43,7 @@
         </footer>
         <div class="clearme"></div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>
 </html>

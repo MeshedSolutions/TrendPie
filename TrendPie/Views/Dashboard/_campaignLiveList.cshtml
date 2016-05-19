@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TrendPie.Models.Campaign>
+
+<div class="clearme"></div>
+    @foreach (var campaign in Model)
+    {
+        <div class="campaignOpenItemWrap">
+            <div class="campaignName">
+                @campaign.Name
+            </div>
+            <div class="campaignStart">
+                <span class="timeLable">STARTS:</span> @campaign.StartDate
+            </div>
+            <div class="campaignEnd">
+                <span class="timeLable2">ENDING:</span> @campaign.EndDate
+            </div>
+            <div class="affiliateLinkWrap">
+                <input type="text" class="affiliateLink" placeholder="Affiliate Link">
+            </div>
+            <div class="space20"></div>
+        </div>
+    }
+
+    <div class="clearme"></div>
+    <div class="clearme"></div>
+    <a href="#">
+        <div class="bttnViewAllWrap">
+            <div class="bttnViewAllBlu">
+                VIEW All
+                <div class="bttnViewAllArrow"></div>
+            </div>
+        </div>
+    </a>
+    <div class="clearme"></div>
+    <div class="Space25"></div>
