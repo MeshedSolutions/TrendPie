@@ -1,0 +1,195 @@
+﻿@model TrendPie.Models.Campaign
+
+@{
+    ViewBag.Title = "Create Campaign";
+}
+
+<div class="formwrapper">
+    <h1>CREATE CAMPAIGN</h1>
+</div>
+@Html.Partial("_campaignMenu")
+
+<div class="clearme"></div>
+<div class="space10"></div>
+@using (@Html.BeginForm())
+{
+    <div class="formwrapper whiteBack">
+        <div>
+            <input name="client" type="text" placeholder="Client" class="txtInput" />
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <input name="name" type="text" placeholder="Campaign Name" class="txtInput" />
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <select name="type" class="ddlInput">
+                <option value="affiliate">Affiliate</option>
+                <option value="standard">Standard</option>
+            </select>
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <input name="affiliateLink" type="text" placeholder="Affiliate Link" class="txtInput" />
+        </div>
+        <div class="fieldSeperator"></div>
+        <div class="lblWrapper">Campaign Start</div>
+        <div class="clearme"></div>
+        <div>
+
+            <select name="startDay" class="ddlInput3">
+                <option value="">Day</option>
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+                <option value="1">5</option>
+                <option value="1">6</option>
+                <option value="1">7</option>
+                <option value="1">8</option>
+                <option value="1">9</option>
+                <option value="1">10</option>
+                <option value="1">11</option>
+                <option value="1">12</option>
+                <option value="1">13</option>
+                <option value="1">14</option>
+                <option value="1">15</option>
+                <option value="1">16</option>
+                <option value="1">17</option>
+                <option value="1">18</option>
+                <option value="1">19</option>
+                <option value="1">20</option>
+                <option value="1">21</option>
+                <option value="1">22</option>
+                <option value="1">23</option>
+                <option value="1">24</option>
+                <option value="1">25</option>
+                <option value="1">26</option>
+                <option value="1">27</option>
+                <option value="1">28</option>
+                <option value="1">29</option>
+                <option value="1">20</option>
+                <option value="1">31</option>
+            </select>
+            <select name="startMonth" class="ddlInput3">
+                <option value="">Month</option>
+                <option value="1">Jan</option>
+                <option value="2">Feb</option>
+                <option value="3">Mar</option>
+                <option value="4">Apr</option>
+                <option value="5">May</option>
+                <option value="6">Jun</option>
+                <option value="7">Jul</option>
+                <option value="8">Aug</option>
+                <option value="9">Sep</option>
+                <option value="10">Oct</option>
+                <option value="11">Nov</option>
+                <option value="12">Dec</option>
+            </select>
+            <select name="startYear" class="ddlInput3">
+                <option value="">Year</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+        <div class="clearme"></div>
+        <div class="space15"></div>
+        <div class="lblWrapper">Campaign End</div>
+        <div class="clearme"></div>
+        <div>
+            <select name="endDay" class="ddlInput3">
+                <option value="">Day</option>
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+                <option value="1">5</option>
+                <option value="1">6</option>
+                <option value="1">7</option>
+                <option value="1">8</option>
+                <option value="1">9</option>
+                <option value="1">10</option>
+                <option value="1">11</option>
+                <option value="1">12</option>
+                <option value="1">13</option>
+                <option value="1">14</option>
+                <option value="1">15</option>
+                <option value="1">16</option>
+                <option value="1">17</option>
+                <option value="1">18</option>
+                <option value="1">19</option>
+                <option value="1">20</option>
+                <option value="1">21</option>
+                <option value="1">22</option>
+                <option value="1">23</option>
+                <option value="1">24</option>
+                <option value="1">25</option>
+                <option value="1">26</option>
+                <option value="1">27</option>
+                <option value="1">28</option>
+                <option value="1">29</option>
+                <option value="1">20</option>
+                <option value="1">31</option>
+            </select>
+            <select name="endMonth" class="ddlInput3">
+                <option value="">Month</option>
+                <option value="1">Jan</option>
+                <option value="2">Feb</option>
+                <option value="3">Mar</option>
+                <option value="4">Apr</option>
+                <option value="5">May</option>
+                <option value="6">Jun</option>
+                <option value="7">Jul</option>
+                <option value="8">Aug</option>
+                <option value="9">Sep</option>
+                <option value="10">Oct</option>
+                <option value="11">Nov</option>
+                <option value="12">Dec</option>
+            </select>
+            <select name="endYear" class="ddlInput3">
+                <option value="">Year</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+        <div class="clearme"></div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <input name="budget" type="text" placeholder="Campaign Budget" class="txtInput" />
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            <div class="lblWrapper">Campaign Image</div>
+            <div class="genericWrapper">
+                <input name="image" type="text" class="txtInputSM" />
+                <a href="#" class="bttnFileUpload">Choose File</a>
+            </div>
+            <div class="genericWrapper">http://image.link/location</div>
+        </div>
+        <div class="fieldSeperator"></div>
+        <div class="lblWrapper">Campaign Status</div>
+        <div class="clearme"></div>
+        <div>
+            <select name="active" class="ddlInput">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+            </select>
+        </div>
+        <div class="space35"></div>
+        <div class="clearme"></div>
+        <div class="space35"></div>
+    </div>
+    <div class="clearme"></div>
+    <div class="bg_createacct">
+        <div class="formwrapper">
+            <input type="submit" value="Create Campaign" class="bttnRegister" />
+            <div class="bttnArrow"></div>
+        </div>
+    </div>
+}

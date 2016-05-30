@@ -29,5 +29,35 @@ namespace TrendPie.Controllers
 
             return View(viewModel);
         }
+
+        public ActionResult UserProfile(int userID)
+        {
+            User viewModel = UserRepository.GetByID(userID);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult UserProfile(User user)
+        {
+            UserRepository.UpdateStatus(user.Id, user.Status);
+
+            return View(user);
+        }
+
+        public ActionResult CreateCampaign()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateCampaign(Campaign campaign)
+        {
+            if (ModelState.IsValid)
+            {
+                CampaignRepository.Create(campaign);
+            }
+            return View(campaign);
+        }
     }
 }

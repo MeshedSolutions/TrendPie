@@ -1,0 +1,88 @@
+﻿@model TrendPie.Models.User
+
+@{
+    ViewBag.Title = "User Profile";
+}
+
+<div>
+    @using(@Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.Id)
+        <div class="formwrapper">
+            <h1>USER PROFILE</h1>
+        </div>
+        <div class="clearme"></div>
+        <div>
+            <input type="submit" value="SAVE">
+            @Html.ActionLink("Back", "PendingInfluencers")
+        </div>
+        <div class="formwrapper whiteBack">
+            <div>
+                Status: 
+                @Html.DropDownListFor(
+                    model => model.Status,
+                    new SelectList(
+                        new List<Object>
+                        {
+                            new { value = "Pending", text = "Pending"},
+                            new { value = "Approved", text = "Approved"},
+                            new { value = "Denied", text = "Denied"}
+                        },
+                        "value",
+                        "text"
+                        ),
+                    new { @class = "ddlInput" }
+                    )
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                First Name: @Model.FirstName
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Last Name: @Model.LastName
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                DOB: @Model.DOB
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Email: @Model.Email
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Address 1: @Model.Address1
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Address 2: @Model.Address2
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Country: @Model.Country
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                State: @Model.State
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Zip: @Model.Zip
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Gender: @Model.Gender
+            </div>
+            <div class="fieldSeperator"></div>
+            <div>
+                Preferred Contact: @Model.PreferredContact
+            </div>
+            <div class="fieldSeperator"></div>
+        </div>
+        <div>
+            <input type="submit" value="SAVE">
+            @Html.ActionLink("Back", "PendingInfluencers")
+        </div>
+    }
+</div>
