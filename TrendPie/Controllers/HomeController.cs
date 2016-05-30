@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TrendPie.Models;
 using TrendPie.Repositories;
 
@@ -46,11 +42,20 @@ namespace TrendPie.Controllers
 
                 if (existingUser != null)
                 {
-                    if (user.Password == existingUser.Password && existingUser.Approved)
+                    if (user.Password == existingUser.Password)
                     {
-                        Session["User"] = user;
+                        if (user.Role == "user" && user.Status == "Approved")
+                        {
+                            Session["User"] = user;
 
-                        return RedirectToAction("Index", "Dashboard");
+                            return RedirectToAction("Index", "Dashboard");
+                        }
+                        else
+                        {
+                            Session["User"] = user;
+
+                            return RedirectToAction("Index", "Admin");
+                        }
                     }
                     else
                     {

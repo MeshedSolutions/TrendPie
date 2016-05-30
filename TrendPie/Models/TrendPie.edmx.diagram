@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="TrendPie_Model.SocialMediaAccount" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TrendPie_Model.UserCampaign" Width="1.5" PointX="7" PointY="1.75" />
         <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_Campaign" />
-        <EntityTypeShape EntityType="TrendPie_Model.User" Width="1.5" PointX="4.875" PointY="0.75" />
+        <EntityTypeShape EntityType="TrendPie_Model.User" Width="1.5" PointX="5" PointY="0.75" />
         <AssociationConnector Association="TrendPie_Model.FK_SocialMediaAccount_User" />
         <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_User" />
         </Diagram>

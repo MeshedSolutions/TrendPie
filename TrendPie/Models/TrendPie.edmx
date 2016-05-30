@@ -57,7 +57,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="100" />
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
-          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="UserCampaign">
           <Key>
@@ -225,7 +225,7 @@
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SocialMediaAccounts" Relationship="TrendPie_Model.FK_SocialMediaAccount_User" FromRole="User" ToRole="SocialMediaAccount" />
           <NavigationProperty Name="UserCampaigns" Relationship="TrendPie_Model.FK_UserCampaign_User" FromRole="User" ToRole="UserCampaign" />
         </EntityType>
@@ -307,7 +307,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TrendPie_Model.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

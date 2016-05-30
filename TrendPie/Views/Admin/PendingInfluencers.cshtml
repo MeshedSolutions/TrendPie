@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TrendPie.Models.User>
+
+@{
+    ViewBag.Title = "Pending Influencers";
+}
+
+@Html.Partial("_influencerMenu")
+
+<div>
+    @foreach (var user in Model)
+    {
+        <div>
+            @user.FirstName @user.LastName
+        </div>
+        <div>
+            D.O.B. @user.DOB
+        </div>
+        <div>
+            @user.State @user.Country
+        </div>
+        <div>
+            <a href="#" class="btn btn-default">Profile ></a>
+        </div>
+    }
+</div>
