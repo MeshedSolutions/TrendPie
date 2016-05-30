@@ -7,6 +7,8 @@ namespace TrendPie.Repositories
     {
         public static void Create(User user)
         {
+            user.Approved = false;
+
             using (var db = new TrendPie_Entities())
             {
                 db.Users.Add(user);

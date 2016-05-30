@@ -46,7 +46,7 @@ namespace TrendPie.Controllers
 
                 if (existingUser != null)
                 {
-                    if (user.Password == existingUser.Password)
+                    if (user.Password == existingUser.Password && existingUser.Approved)
                     {
                         Session["User"] = user;
 

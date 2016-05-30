@@ -7,12 +7,12 @@
       <Diagram DiagramId="ab2d03f8ec604420a5c8ad507ed9fd70" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="TrendPie_Model.Campaign" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TrendPie_Model.SocialMediaAccount" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrendPie_Model.User" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TrendPie_Model.UserCampaign" Width="1.5" PointX="7" PointY="1.75" />
         <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_Campaign" />
-        <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_User" />
+        <EntityTypeShape EntityType="TrendPie_Model.User" Width="1.5" PointX="4.875" PointY="0.75" />
         <AssociationConnector Association="TrendPie_Model.FK_SocialMediaAccount_User" />
-      </Diagram>
+        <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_User" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
