@@ -6,6 +6,8 @@ namespace TrendPie.Controllers
 {
     public class HomeController : Controller
     {
+        public string ErrorMessage = string.Empty;
+
         public ActionResult Index()
         {
             return View();
@@ -34,8 +36,6 @@ namespace TrendPie.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            string errorMessage = string.Empty;
-
             if (ModelState.IsValid)
             {
                 var existingUser = UserRepository.GetByEmail(user.Email);
@@ -44,28 +44,38 @@ namespace TrendPie.Controllers
                 {
                     if (user.Password == existingUser.Password)
                     {
+                        // Valid and approved user
                         if (user.Role == "user" && user.Status == "Approved")
                         {
                             Session["User"] = user;
 
                             return RedirectToAction("Index", "Dashboard");
                         }
-                        else
+
+                        // Admin user
+                        if (user.Role == "admin")
                         {
                             Session["User"] = user;
 
                             return RedirectToAction("Index", "Admin");
                         }
+
+                        // Valid but not approved user
+                        ErrorMessage = "Your account has not been approved yet";
                     }
                     else
                     {
-                        errorMessage = "Invalid username or password";
+                        ErrorMessage = "Invalid username or password";
                     }
                 }
                 else
                 {
-                    errorMessage = "Invalid username or password";
+                    ErrorMessage = "Invalid username or password";
                 }
+            }
+
+            if (!string.IsNullOrEmpty(ErrorMessage))
+            {
             }
 
             return View();

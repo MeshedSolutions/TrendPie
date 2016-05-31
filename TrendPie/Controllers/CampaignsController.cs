@@ -9,7 +9,7 @@ namespace TrendPie.Controllers
     {
         public ActionResult Pending()
         {
-            List<Campaign> viewModel = CampaignRepository.GetAllPending();
+            List<Campaign> viewModel = CampaignRepository.GetAllLive();
 
             return View(viewModel);
         }
@@ -26,6 +26,17 @@ namespace TrendPie.Controllers
             List<Campaign> viewModel = CampaignRepository.GetAllComplete();
 
             return View(viewModel);
+        }
+
+        public ActionResult Accept(int campaignID)
+        {
+            var user = (User) Session["User"];
+
+            UserCampaignRepository.AcceptCampaign(campaignID, user.Id);
+
+            List<Campaign> viewModel = CampaignRepository.GetAllPending();
+
+            return View("Pending", viewModel);
         }
     }
 }
