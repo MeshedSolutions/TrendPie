@@ -239,11 +239,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Campaigns\Create.cshtml" />
-    <Content Include="Views\Campaigns\Delete.cshtml" />
-    <Content Include="Views\Campaigns\Details.cshtml" />
-    <Content Include="Views\Campaigns\Edit.cshtml" />
-    <Content Include="Views\Campaigns\Index.cshtml" />
     <Content Include="Views\SocialMediaAccounts\Create.cshtml" />
     <Content Include="Views\SocialMediaAccounts\Delete.cshtml" />
     <Content Include="Views\SocialMediaAccounts\Details.cshtml" />
@@ -272,6 +267,10 @@
     <Content Include="Views\Admin\UserProfile.cshtml" />
     <Content Include="Views\Admin\CreateCampaign.cshtml" />
     <Content Include="Views\Admin\_campaignMenu.cshtml" />
+    <Content Include="Views\Campaigns\Pending.cshtml" />
+    <Content Include="Views\Campaigns\_campaignMenu.cshtml" />
+    <Content Include="Views\Campaigns\Live.cshtml" />
+    <Content Include="Views\Campaigns\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

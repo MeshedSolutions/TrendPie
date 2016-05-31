@@ -1,127 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using TrendPie.Models;
+using TrendPie.Repositories;
 
 namespace TrendPie.Controllers
 {
     public class CampaignsController : Controller
     {
-        private TrendPie_Entities db = new TrendPie_Entities();
-
-        // GET: Campaigns
-        public ActionResult Index()
+        public ActionResult Pending()
         {
-            return View(db.Campaigns.ToList());
+            List<Campaign> viewModel = CampaignRepository.GetAllPending();
+
+            return View(viewModel);
         }
 
-        // GET: Campaigns/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Live()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Campaign campaign = db.Campaigns.Find(id);
-            if (campaign == null)
-            {
-                return HttpNotFound();
-            }
-            return View(campaign);
+            List<Campaign> viewModel = CampaignRepository.GetAllLive();
+
+            return View(viewModel);
         }
 
-        // GET: Campaigns/Create
-        public ActionResult Create()
+        public ActionResult Complete()
         {
-            return View();
-        }
+            List<Campaign> viewModel = CampaignRepository.GetAllComplete();
 
-        // POST: Campaigns/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Client,Name,Type,AffiliateLink,StartDate,EndDate,Budget,Image,Active,Status,DateCreated")] Campaign campaign)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Campaigns.Add(campaign);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(campaign);
-        }
-
-        // GET: Campaigns/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Campaign campaign = db.Campaigns.Find(id);
-            if (campaign == null)
-            {
-                return HttpNotFound();
-            }
-            return View(campaign);
-        }
-
-        // POST: Campaigns/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Client,Name,Type,AffiliateLink,StartDate,EndDate,Budget,Image,Active,Status,DateCreated")] Campaign campaign)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(campaign).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(campaign);
-        }
-
-        // GET: Campaigns/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Campaign campaign = db.Campaigns.Find(id);
-            if (campaign == null)
-            {
-                return HttpNotFound();
-            }
-            return View(campaign);
-        }
-
-        // POST: Campaigns/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Campaign campaign = db.Campaigns.Find(id);
-            db.Campaigns.Remove(campaign);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return View(viewModel);
         }
     }
 }

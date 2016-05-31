@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TrendPie.Models.Campaign>
+
+@{
+    ViewBag.Title = "Live Campaigns";
+}
+
+<div>
+    @Html.Partial("_campaignMenu")
+</div>
+<div class="grayBack">
+    <div class="campaignContentWrap">
+        <div class="clearme"></div>
+        @foreach (var campaign in Model)
+        {
+            <div class="campaignOpenItemWrap">
+                <div class="campaignName">
+                    @campaign.Name
+                </div>
+                <div class="campaignStart">
+                    <span class="timeLable">STARTS:</span> @campaign.StartDate
+                </div>
+                <div class="campaignEnd">
+                    <span class="timeLable2">ENDING:</span> @campaign.EndDate
+                </div>
+                <div class="affiliateLinkWrap">
+                    <input type="text" class="affiliateLink" placeholder="Affiliate Link">
+                </div>
+                <div class="space20"></div>
+            </div>
+        }
+
+        <div class="clearme"></div>
+        <div class="clearme"></div>
+    </div>
+    <div class="clearme"></div>
+    <div class="space25"></div>
+</div>
+

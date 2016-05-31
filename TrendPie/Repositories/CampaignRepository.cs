@@ -28,6 +28,27 @@ namespace TrendPie.Repositories
                 return db.Campaigns.Where(i => i.Active == "true" && i.Status == "complete").Take(5).ToList();
             }
         }
+        public static List<Campaign> GetAllPending()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Status == "Pending").ToList();
+            }
+        }
+        public static List<Campaign> GetAllComplete()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Status == "Complete").ToList();
+            }
+        }
+        public static List<Campaign> GetAllLive()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Status == "Live").ToList();
+            }
+        }
         public static Campaign GetById(int campaignId)
         {
             using (var db = new TrendPie_Entities())

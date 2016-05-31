@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TrendPie.Models.Campaign>
+
+@{
+    ViewBag.Title = "Complete Campaigns";
+}
+
+<div>
+    @Html.Partial("_campaignMenu")
+</div>
+
+<div class="grayBack">
+    <div class="campaignContentWrap">
+        <div class="clearme"></div>
+        <div>
+            @foreach (var campaign in Model)
+            {
+                <div class="campaignCloseItemWrap">
+                    <div class="ce_Wrap">
+                        <div class="campaignName">
+                            @campaign.Name
+                        </div>
+                        <div class="campaignEarnings">
+                            <span class="timeLable">Earned:</span> $150
+                        </div>
+                    </div>
+                    <div class="campaignEndWrap">
+                        <div class="campaignEndDay">
+                            @campaign.EndDay
+                        </div>
+                        <div class="campaignEndMonth">
+                            @campaign.EndMonthAbbreviation
+                        </div>
+                    </div>
+                    <div class="clearme"></div>
+                    <div class="space15"></div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="clearme"></div>
+    <div class="space25"></div>
+</div>
