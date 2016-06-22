@@ -23,8 +23,7 @@
                     <span class="timeLable2">ENDING:</span> @campaign.EndDate
                 </div>
                 <div class="optWrapper">
-                    <a href="#"><div class="declineCampaign"></div></a>
-                    <a href="#"><div class="acceptCampaign"></div></a>
+                    @Html.ActionLink("Apply Now", "Accept", new { campaignID = campaign.Id })
                 </div>
                 <div class="clearme"></div>
                 <div class="space20"></div>

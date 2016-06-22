@@ -56,7 +56,7 @@ namespace TrendPie.Controllers
 
             List<Campaign> viewModel = CampaignRepository.GetAllPending();
 
-            return View("Pending", viewModel);
+            return RedirectToAction("Pending");
         }
     }
 }
