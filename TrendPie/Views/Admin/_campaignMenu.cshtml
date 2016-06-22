@@ -1,9 +1,9 @@
 ﻿<div class="blueNavBumper"></div>
 <div class="SecNavWrapper">
     <ul>
-        <li> <a href="{{pathFor 'campaignCreate'}}" class="">CREATE </a></li>
-        <li> <a href="{{pathFor 'campaignAdminCurrent'}}" class="">CURRENT</a></li>
-        <li> <a href="{{pathFor 'campaignAdminComplete'}}" class="">COMPLETE</a></li>
+        <li>@Html.ActionLink("CREATE", "CreateCampaign")</li>
+        <li>@Html.ActionLink("CURRENT", "CurrentCampaigns")</li>
+        <li>@Html.ActionLink("COMPLETE", "CompleteCampaigns")</li>
     </ul>
 </div>
 

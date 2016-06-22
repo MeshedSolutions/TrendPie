@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TrendPie.Models.Campaign>
+
+@{
+    ViewBag.Title = "Current Campaigns";
+}
+
+
+@Html.Partial("_campaignMenu")
+<div class="grayBack">
+    <div class="campaignContentWrap">
+        @foreach (var campaign in Model)
+        {
+            <div class="campaignCloseItemWrap">
+                <div>
+                    <div class="campaignName">
+                        @campaign.Name
+                    </div>
+                    <div class="campaignStart">
+                        <span class="timeLable">Status:</span> @campaign.Active
+                    </div>
+                    <div class="campaignStart">
+                        <span class="timeLable">Influencers:</span> 12
+                    </div>
+
+                    <div class="editWrapper">
+                        <a href="#"><div class="editCampaign"></div></a>
+                    </div>
+                    <div class="space20"></div>
+                    <div class="beginEndWrap">
+                        <div class="admin_campaignTiming">
+                            <span class="timeLable">Start:</span> @campaign.StartDate
+                        </div>
+                        <div class="admin_campaignTiming">
+                            <span class="timeLable">End: </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="clearme"></div>
+    <div class="space25"></div>
+</div>

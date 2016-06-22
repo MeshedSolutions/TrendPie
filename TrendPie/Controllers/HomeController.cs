@@ -45,17 +45,17 @@ namespace TrendPie.Controllers
                     if (user.Password == existingUser.Password)
                     {
                         // Valid and approved user
-                        if (user.Role == "user" && user.Status == "Approved")
+                        if (existingUser.Role == "user" && existingUser.Status == "Approved")
                         {
-                            Session["User"] = user;
+                            Session["User"] = existingUser;
 
                             return RedirectToAction("Index", "Dashboard");
                         }
 
                         // Admin user
-                        if (user.Role == "admin")
+                        if (existingUser.Role == "admin")
                         {
-                            Session["User"] = user;
+                            Session["User"] = existingUser;
 
                             return RedirectToAction("Index", "Admin");
                         }

@@ -272,6 +272,8 @@
     <Content Include="Views\Campaigns\_campaignMenu.cshtml" />
     <Content Include="Views\Campaigns\Live.cshtml" />
     <Content Include="Views\Campaigns\Complete.cshtml" />
+    <Content Include="Views\Admin\CurrentCampaigns.cshtml" />
+    <Content Include="Views\Admin\CompleteCampaigns.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

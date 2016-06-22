@@ -42,6 +42,13 @@ namespace TrendPie.Repositories
                 return db.Campaigns.Where(i => i.Status == "Complete").ToList();
             }
         }
+        public static List<Campaign> GetAllActive()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Active == "true").ToList();
+            }
+        }
         public static List<Campaign> GetAllLive()
         {
             using (var db = new TrendPie_Entities())

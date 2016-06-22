@@ -36,7 +36,6 @@ namespace TrendPie.Controllers
 
             return View(viewModel);
         }
-
         [HttpPost]
         public ActionResult UserProfile(User user)
         {
@@ -49,7 +48,6 @@ namespace TrendPie.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult CreateCampaign(Campaign campaign)
         {
@@ -58,6 +56,20 @@ namespace TrendPie.Controllers
                 CampaignRepository.Create(campaign);
             }
             return View(campaign);
+        }
+
+        public ActionResult CurrentCampaigns()
+        {
+            var viewModel = CampaignRepository.GetAllActive();
+
+            return View(viewModel);
+        }
+
+        public ActionResult CompleteCampaigns()
+        {
+            var viewModel = CampaignRepository.GetAllComplete();
+
+            return View(viewModel);
         }
     }
 }
