@@ -5,7 +5,7 @@
 }
 
 <div class="gradient30">
-    @using (Html.BeginForm("UpdateWallet"))
+    @using (Html.BeginForm("UpdateWallet", "Profile", FormMethod.Post))
     {
         @Html.HiddenFor(model => model.Id)
         <div class="space25"></div>
@@ -21,27 +21,4 @@
             <div><input type="submit" value="Save" class="bttnAddSocial"></div>
         </div>
     }
-
-    <div class="clearme"></div>
-    <div class="space25"></div>
-
-    <form>
-        <div class="formwrapper whiteBack">
-            <div class="walletLabel">Change Subscription</div>
-            <div>
-                <select name="subscriptionLevel" class="ddlInput">
-                    <option value="Standard">Standard</option>
-                    <option value="Gold">Gold</option>
-                    <option value="Platinum">Platinum</option>
-                </select>
-            </div>
-        </div>
-        <div class="clearme"></div>
-        <div class="space10"></div>
-        <div class="formwrapper">
-            <div><input type="submit" value="Save" class="bttnAddSocial"></div>
-        </div>
-    </form>
-    <div class="clearme"></div>
-    <div class="space50"></div>
 </div>

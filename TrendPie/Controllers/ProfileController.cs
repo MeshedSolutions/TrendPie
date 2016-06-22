@@ -15,7 +15,11 @@ namespace TrendPie.Controllers
 
         public ActionResult Wallet()
         {
-            return View();
+            var user = new User();
+
+            if (Session != null) user = (User) Session["User"];
+
+            return View(user);
         }
 
         public ActionResult UserProfile()
@@ -50,7 +54,10 @@ namespace TrendPie.Controllers
             {
                 UpdateAmountPerCampaign(user, currentUser);
                 UpdatePayPalEmail(user, currentUser);
+                currentUser = UserRepository.GetByID(currentUser.Id);
+                Session["User"] = currentUser;
             }
+
 
             return RedirectToAction("Wallet");
         }
