@@ -10,9 +10,13 @@ namespace TrendPie.Controllers
         public ActionResult Index()
         {
             var viewModel = new DashboardIndexViewModel();
+            if (Session != null)
+            {
+                var user = (User)Session["User"];
 
-            viewModel.CampaignLiveList = CampaignRepository.GetTop5ActiveLive();
-            viewModel.CampaignCompleteList = CampaignRepository.GetTop5ActiveComplete();
+                viewModel.CampaignLiveList = CampaignRepository.GetTop5ActiveLiveForUser(user);
+                viewModel.CampaignCompleteList = CampaignRepository.GetTop5ActiveCompleteForUser(user);
+            }
 
             return View(viewModel);
         }

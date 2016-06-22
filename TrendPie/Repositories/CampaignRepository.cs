@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Mvc.Html;
 using TrendPie.Models;
 
 namespace TrendPie.Repositories
@@ -26,6 +27,36 @@ namespace TrendPie.Repositories
             using (var db = new TrendPie_Entities())
             {
                 return db.Campaigns.Where(i => i.Active == "true" && i.Status == "complete").Take(5).ToList();
+            }
+        }
+        public static List<Campaign> GetTop5ActiveLiveForUser(User user)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                List<Campaign> campaigns = (
+                    from campaign in db.Campaigns
+                    join userCampaign in db.UserCampaigns on campaign.Id equals userCampaign.CampaignID
+                    where userCampaign.UserID == user.Id &&
+                          campaign.Active == "true" &&
+                          campaign.Status == "live"
+                    select campaign).Take(5).ToList();
+
+                return campaigns;
+            }
+        }
+        public static List<Campaign> GetTop5ActiveCompleteForUser(User user)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                List<Campaign> campaigns = (
+                    from campaign in db.Campaigns
+                    join userCampaign in db.UserCampaigns on campaign.Id equals userCampaign.CampaignID
+                    where userCampaign.UserID == user.Id &&
+                          campaign.Active == "true" &&
+                          campaign.Status == "complete"
+                    select campaign).Take(5).ToList();
+
+                return campaigns;
             }
         }
         public static List<Campaign> GetAllPending()
