@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web.Mvc.Html;
 using TrendPie.Models;
 
 namespace TrendPie.Repositories
@@ -13,6 +12,76 @@ namespace TrendPie.Repositories
             using (var db = new TrendPie_Entities())
             {
                 return db.Campaigns.ToList();
+            }
+        }
+        public static List<Campaign> GetAllPending()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Status == "Pending").ToList();
+            }
+        }
+        public static List<Campaign> GetAllComplete()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Status == "Complete").ToList();
+            }
+        }
+        public static List<Campaign> GetAllActive()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Active == "true").ToList();
+            }
+        }
+        public static List<Campaign> GetAllLive()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.Campaigns.Where(i => i.Status == "Live").ToList();
+            }
+        }
+        public static List<Campaign> GetAllActiveLiveForUser(User user)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                List<Campaign> campaigns = (
+                    from campaign in db.Campaigns
+                    join userCampaign in db.UserCampaigns on campaign.Id equals userCampaign.CampaignID
+                    where userCampaign.UserID == user.Id &&
+                          campaign.Active == "true" &&
+                          campaign.Status == "live"
+                    select campaign).ToList();
+
+                return campaigns;
+            }
+        }
+        public static List<Campaign> GetAllActiveCompleteForUser(User user)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                List<Campaign> campaigns = (
+                    from campaign in db.Campaigns
+                    join userCampaign in db.UserCampaigns on campaign.Id equals userCampaign.CampaignID
+                    where userCampaign.UserID == user.Id &&
+                          campaign.Active == "true" &&
+                          campaign.Status == "complete"
+                    select campaign).ToList();
+
+                return campaigns;
+            }
+        }
+        public static List<Campaign> GetAllActivePendingForUser(User user)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var campaigns = db.Campaigns.Where(i => i.Active == "true" && i.Status == "live").ToList();
+                var userCampaigns = db.UserCampaigns.Where(i => i.UserID == user.Id).Select(i => i.CampaignID).ToList();
+
+                List<Campaign> campaignList = campaigns.Where(campaign => !userCampaigns.Contains(campaign.Id)).ToList();
+
+                return campaignList;
             }
         }
         public static List<Campaign> GetTop5ActiveLive()
@@ -57,34 +126,6 @@ namespace TrendPie.Repositories
                     select campaign).Take(5).ToList();
 
                 return campaigns;
-            }
-        }
-        public static List<Campaign> GetAllPending()
-        {
-            using (var db = new TrendPie_Entities())
-            {
-                return db.Campaigns.Where(i => i.Status == "Pending").ToList();
-            }
-        }
-        public static List<Campaign> GetAllComplete()
-        {
-            using (var db = new TrendPie_Entities())
-            {
-                return db.Campaigns.Where(i => i.Status == "Complete").ToList();
-            }
-        }
-        public static List<Campaign> GetAllActive()
-        {
-            using (var db = new TrendPie_Entities())
-            {
-                return db.Campaigns.Where(i => i.Active == "true").ToList();
-            }
-        }
-        public static List<Campaign> GetAllLive()
-        {
-            using (var db = new TrendPie_Entities())
-            {
-                return db.Campaigns.Where(i => i.Status == "Live").ToList();
             }
         }
         public static Campaign GetById(int campaignId)

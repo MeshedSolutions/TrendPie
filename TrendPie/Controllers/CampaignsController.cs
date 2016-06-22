@@ -9,21 +9,41 @@ namespace TrendPie.Controllers
     {
         public ActionResult Pending()
         {
-            List<Campaign> viewModel = CampaignRepository.GetAllLive();
+            var viewModel = new List<Campaign>();
+
+            if (Session != null)
+            {
+                var user = (User) Session["User"];
+
+                viewModel = CampaignRepository.GetAllActivePendingForUser(user);
+            }
 
             return View(viewModel);
         }
 
         public ActionResult Live()
         {
-            List<Campaign> viewModel = CampaignRepository.GetAllLive();
+            var viewModel = new List<Campaign>();
+
+            if (Session != null)
+            {
+                var user = (User) Session["User"];
+
+                viewModel = CampaignRepository.GetAllActiveLiveForUser(user);
+            }
 
             return View(viewModel);
         }
 
         public ActionResult Complete()
         {
-            List<Campaign> viewModel = CampaignRepository.GetAllComplete();
+            var viewModel = new List<Campaign>();
+
+            if (Session != null)
+            {
+                var user = (User)Session["User"];
+                viewModel = CampaignRepository.GetAllActiveCompleteForUser(user);
+            }
 
             return View(viewModel);
         }
