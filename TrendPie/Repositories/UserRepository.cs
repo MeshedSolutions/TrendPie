@@ -60,5 +60,14 @@ namespace TrendPie.Repositories
                 }
             }
         }
+        public static void UpdateUserProfile(User user)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var userProfile = db.Users.Find(user.Id);
+
+                db.SaveChanges();
+            }
+        }
     }
 }

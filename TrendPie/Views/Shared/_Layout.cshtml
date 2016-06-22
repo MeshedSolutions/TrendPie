@@ -26,18 +26,18 @@
                             </div>
                             <div class="space60"></div>
 
-                            <div class="menuItems">@Html.ActionLink("Dashboard", "Index", "Dashboard")<div class='navArrow'></div></div>
+                            <div class="menuItems"><a href="@Url.Action("Index", "Dashboard")">DASHBOARD<div class='navArrow'></div></a></div>
                             <div class="childBorderWrap"><div class="childBorder"></div></div>
 
-                            <div class="menuItems">@Html.ActionLink("Campaigns", "Pending", "Campaigns")<div class="navArrow"></div></div>
+                            <div class="menuItems"><a href="@Url.Action("Pending", "Campaigns")">CAMPAIGNS<div class="navArrow"></div></a></div>
                             <div class="childBorderWrap"><div class="childBorder"></div></div>
 
                             <div>
-                                <div class="menuItems"><a href="{{pathFor 'wallet'}}">Wallet<div class="navArrow"></div></a></div>
+                                <div class="menuItems"><a href="@Url.Action("Wallet", "Profile")">Wallet<div class="navArrow"></div></a></div>
                                 <div class="childBorderWrap"><div class="childBorder"></div></div>
                             </div>
 
-                            <div class="menuItems navhighlight">@Html.ActionLink("Profile", "Index", "Profile")<div class="navArrow"></div></div>
+                            <div class="menuItems navhighlight"><a href="@Url.Action("UserProfile", "Profile")">PROFILE<div class="navArrow"></div></a></div>
                             <div class="childBorderWrap"><div class="childBorder"></div></div>
                         </div>
                         <div class="clearme"></div>

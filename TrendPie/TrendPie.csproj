@@ -259,7 +259,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\_profileMenu.cshtml" />
     <Content Include="Views\Profile\Wallet.cshtml" />
-    <Content Include="Views\Profile\Profile.cshtml" />
+    <Content Include="Views\Profile\UserProfile.cshtml" />
     <Content Include="Views\Profile\Social.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_influencerMenu.cshtml" />

@@ -18,9 +18,20 @@ namespace TrendPie.Controllers
             return View();
         }
 
-        public ActionResult Profile()
+        public ActionResult UserProfile()
         {
-            return View();
+            var user = new User();
+
+            if (Session != null) user = (User) Session["User"];
+
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult UserProfile(User user)
+        {
+            UserRepository.UpdateUserProfile(user);
+
+            return View(user);
         }
 
         public ActionResult Social()
