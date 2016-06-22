@@ -40,5 +40,36 @@ namespace TrendPie.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public ActionResult UpdateWallet(User user)
+        {
+            var currentUser = (User) Session["User"];
+
+            if (currentUser != null)
+            {
+                UpdateAmountPerCampaign(user, currentUser);
+                UpdatePayPalEmail(user, currentUser);
+            }
+
+            return RedirectToAction("Wallet");
+        }
+
+        private static void UpdatePayPalEmail(User user, User currentUser)
+        {
+            if (user.PayPalEmail != currentUser.PayPalEmail)
+            {
+                UserRepository.UpdatePayPalEmail(currentUser.Id, user.PayPalEmail);
+            }
+        }
+        private static void UpdateAmountPerCampaign(User user, User currentUser)
+        {
+            if (user.AmountPerCampaign != currentUser.AmountPerCampaign)
+            {
+                UserRepository.UpdateStatus(currentUser.Id, "Pending");
+                if (user.AmountPerCampaign != null)
+                    UserRepository.UpdateAmountPerCampaign(currentUser.Id, user.AmountPerCampaign.Value);
+            }
+        }
     }
 }

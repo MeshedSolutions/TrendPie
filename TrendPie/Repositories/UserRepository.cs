@@ -69,5 +69,31 @@ namespace TrendPie.Repositories
                 db.SaveChanges();
             }
         }
+        public static void UpdatePayPalEmail(int userID, string payPalEmail)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var user = db.Users.Find(userID);
+
+                if (user != null)
+                {
+                    user.PayPalEmail = payPalEmail;
+                    db.SaveChanges();
+                }
+            }
+        }
+        public static void UpdateAmountPerCampaign(int userID, int amountPerCampaign)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var user = db.Users.Find(userID);
+
+                if (user != null)
+                {
+                    user.AmountPerCampaign = amountPerCampaign;
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }
