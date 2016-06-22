@@ -94,11 +94,18 @@ namespace TrendPie.Controllers
             {
                 if (user.Agree)
                 {
+                    user.Role = "user";
                     UserRepository.Create(user);
+                    return RedirectToAction("ThankYou");
                 }
             }
 
             return View(user);
+        }
+
+        public ActionResult ThankYou()
+        {
+            return View();
         }
     }
 }
