@@ -275,6 +275,7 @@
     <Content Include="Views\Admin\CurrentCampaigns.cshtml" />
     <Content Include="Views\Admin\CompleteCampaigns.cshtml" />
     <Content Include="Views\Home\ThankYou.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

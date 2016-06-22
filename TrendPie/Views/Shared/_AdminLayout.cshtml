@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - TrendPie</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <meta name="viewport" content="width=device-width" />
+
+        <div class="parentWrapper bgimgOne">
+            <div class="topWrapper100">
+                <div class="userGreeting">welcome back ,</div>
+                <div class="logo"></div>
+                <div class="SlideM">
+                    <div class="mnavBWrapper">
+                        <div class="menuBtn"></div>
+                    </div>
+                    <div class="clearme"></div>
+                    <div class="MenuLinks">
+                        <div class="menuWrap95">
+                            <div class="mnavBWrapper">
+                                <div class="closeBtn"></div>
+                            </div>
+                            <div class="space60"></div>
+
+                            <div class="menuItems"><a href="@Url.Action("CurrentCampaigns", "Admin")">CAMPAIGNS<div class="navArrow"></div></a></div>
+                            <div class="childBorderWrap"><div class="childBorder"></div></div>
+
+                            <div class="menuItems"><a href="@Url.Action("PendingInfluencers", "Admin")">INFLUENCERS<div class="navArrow"></div></a></div>
+                            <div class="childBorderWrap"><div class="childBorder"></div></div>
+                        </div>
+                        <div class="clearme"></div>
+                        <div class="menuBttmBorder"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearme"></div>
+            <div class="space75"></div>
+            <div id="main">
+                @RenderBody()
+                <div class="clearme"></div>
+            </div>
+            <div class="clearme"></div>
+            <footer>
+                <div class="footerWrap100">
+                    <div class="footerContentRow">
+                        <div class="iconPhone"></div>
+                        +1 401 659 6668
+                    </div>
+                    <div class="footerContentRow">
+                        <div class="iconMail"></div>
+                        Hello@TrendPie.com
+                    </div>
+                    <div class="clearme"></div>
+                    <div class="legalese">Copyright © 2016, Trend Pie, LLC.</div>
+                </div>
+                <div class="clearme"></div>
+            </footer>
+            <div class="clearme"></div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        $(".SlideM .MenuLinks").eq(0).hide();
+
+        $(".SlideM .menuBtn").click(function () {
+            $(".SlideM .MenuLinks").slideToggle("fast");
+        });
+
+        $(".SlideM .closeBtn").click(function () {
+            $(".SlideM .MenuLinks").slideToggle("fast");
+        });
+    });
+</script>
