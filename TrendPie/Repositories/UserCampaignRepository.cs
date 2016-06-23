@@ -25,5 +25,12 @@ namespace TrendPie.Repositories
                 db.SaveChanges();
             }
         }
+        public static List<UserCampaign> GetAllForCampaign(int campaignID)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                return db.UserCampaigns.Where(i => i.CampaignID == campaignID).ToList();
+            }
+        }
     }
 }

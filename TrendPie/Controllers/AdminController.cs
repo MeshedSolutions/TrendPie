@@ -71,5 +71,31 @@ namespace TrendPie.Controllers
 
             return View(viewModel);
         }
+
+        public ActionResult PayoutReport()
+        {
+            var viewModel = new List<PayoutReportViewModel>();
+            var campaigns = CampaignRepository.GetAll();
+
+            foreach (var campaign in campaigns)
+            {
+                var payoutReport = new PayoutReportViewModel
+                {
+                    CampaignName = campaign.Name
+                };
+
+                var userCampaigns = UserCampaignRepository.GetAllForCampaign(campaign.Id);
+
+                foreach (var userCampaign in userCampaigns)
+                {
+                    var user = UserRepository.GetByID(userCampaign.UserID);
+                    if (user != null) payoutReport.Users.Add(user);
+                }
+
+                viewModel.Add(payoutReport);
+            }
+
+            return View(viewModel);
+        }
     }
 }

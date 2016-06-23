@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TrendPie.Models.PayoutReportViewModel>
+
+@{
+    ViewBag.Title = "Payout Report";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <input name="selectAll" type="checkbox" />SELECT ALL
+    <input type="button" value="EXPORT">
+</div>
+<div>
+    @foreach (var campaign in Model)
+    {
+        <div>
+            <div>
+                <input type="checkbox" name="selectCampaign" />@campaign.CampaignName
+            </div>
+            <div>
+                @foreach (var user in campaign.Users)
+                {
+                    <div>
+                        <div>
+                            @user.FirstName @user.LastName
+                        </div>
+                        <div>
+                            @user.AmountPerCampaign
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
