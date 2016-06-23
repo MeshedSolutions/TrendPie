@@ -21,7 +21,7 @@
             @user.State @user.Country
         </div>
         <div>
-            <a href="#" class="btn btn-default">Profile ></a>
+            <a href="@Url.Action("UserProfile", new {userID = user.Id})" class="btn btn-default">Profile ></a>
         </div>
     }
 </div>

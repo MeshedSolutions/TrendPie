@@ -35,7 +35,7 @@ namespace TrendPie.Repositories
         {
             using (var db = new TrendPie_Entities())
             {
-                return db.Users.Where(i => i.Status == "Active").ToList();
+                return db.Users.Where(i => i.Status == "Approved").ToList();
             }
         }
         public static List<User> GetAllPending()

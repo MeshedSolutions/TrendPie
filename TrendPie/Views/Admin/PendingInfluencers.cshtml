@@ -20,7 +20,7 @@
             @user.State @user.Country
         </div>
         <div>
-            @Html.ActionLink("Profile >", "UserProfile", new {userID = user.Id}, new { htmlAttributes = new { @class = "btn btn-default"}})
+            <a href="@Url.Action("UserProfile", new {userID = user.Id})" class="btn btn-default">Profile ></a>
         </div>
     }
 </div>

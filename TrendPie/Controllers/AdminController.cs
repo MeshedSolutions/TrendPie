@@ -41,7 +41,7 @@ namespace TrendPie.Controllers
         {
             UserRepository.UpdateStatus(user.Id, user.Status);
 
-            return View(user);
+            return RedirectToAction("PendingInfluencers");
         }
 
         public ActionResult CreateCampaign()
