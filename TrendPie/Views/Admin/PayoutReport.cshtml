@@ -6,38 +6,39 @@
 }
 
 <div>
-    <input name="selectAll" type="checkbox" />SELECT ALL
-    <input type="button" value="EXPORT">
-</div>
-<div>
     @if (Model.Any())
     {
         foreach (var campaign in Model)
         {
             <div>
                 <div>
-                    <input type="checkbox" name="selectCampaign" />@campaign.CampaignName
+                    <span class="campaignName">@campaign.Campaign.Name</span> <a href="" class="btn btn-default">EXPORT</a>
                 </div>
+                <div class="timeLable">
+                    Budget: $@campaign.Campaign.Budget
+                </div>
+                <div class="timeLable">
+                    Start Date: @campaign.Campaign.ShortStartDate
+                </div>
+                <br />
                 <div>
                     @if (campaign.Users.Any())
                     {
                         foreach (var user in campaign.Users)
                         {
                             <div>
-                                <div>
-                                    @user.FirstName @user.LastName
-                                </div>
-                                <div>
-                                    @user.AmountPerCampaign
+                                <div class="timeLable">
+                                    @user.FirstName @user.LastName - $@user.AmountPerCampaign
                                 </div>
                             </div>
                         }
                     }
                     else
                     {
-                        <div>No influencers signed up</div>
+                        <div class="timeLable">No influencers signed up</div>
                     }
                 </div>
+                <br/>
             </div>
         }
     }

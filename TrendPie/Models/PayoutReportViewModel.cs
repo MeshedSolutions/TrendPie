@@ -4,7 +4,7 @@ namespace TrendPie.Models
 {
     public class PayoutReportViewModel
     {
-        public string CampaignName { get; set; }
+        public Campaign Campaign { get; set; }
         public List<User> Users { get; set; }
 
         public PayoutReportViewModel()

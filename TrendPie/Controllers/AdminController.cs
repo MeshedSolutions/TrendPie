@@ -95,13 +95,13 @@ namespace TrendPie.Controllers
         public ActionResult PayoutReport()
         {
             var viewModel = new List<PayoutReportViewModel>();
-            var campaigns = CampaignRepository.GetAll();
+            var campaigns = CampaignRepository.GetAll().OrderByDescending(i => i.DateCreated);
 
             foreach (var campaign in campaigns)
             {
                 var payoutReport = new PayoutReportViewModel
                 {
-                    CampaignName = campaign.Name
+                    Campaign = campaign
                 };
 
                 var userCampaigns = UserCampaignRepository.GetAllForCampaign(campaign.Id);
@@ -116,6 +116,11 @@ namespace TrendPie.Controllers
             }
 
             return View(viewModel);
+        }
+
+        public FileContentResult Export(int campaignID)
+        {
+            return null;
         }
     }
 }
