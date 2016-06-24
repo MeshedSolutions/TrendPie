@@ -23,6 +23,29 @@ namespace TrendPie.Repositories
 
                 db.UserCampaigns.Add(userCampaign);
                 db.SaveChanges();
+
+                var campaign = db.Campaigns.Find(campaignID);
+
+                if (campaign != null)
+                {
+                    int currentAmountTowardsBudget = 0;
+                    var userCampaigns = db.UserCampaigns.Where(i => i.CampaignID == campaignID);
+
+                    foreach (var userCampaign1 in userCampaigns)
+                    {
+                        var campaignUser = db.Users.Find(userCampaign1.UserID);
+                        if (campaignUser != null)
+                        {
+                            currentAmountTowardsBudget += campaignUser.AmountPerCampaign.HasValue ? campaignUser.AmountPerCampaign.Value : 0;
+                        }
+                    }
+
+                    if (currentAmountTowardsBudget >= campaign.Budget)
+                    {
+                        campaign.Status = "complete";
+                        db.SaveChanges();
+                    }
+                }
             }
         }
         public static List<UserCampaign> GetAllForCampaign(int campaignID)
