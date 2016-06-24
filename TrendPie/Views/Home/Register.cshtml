@@ -103,6 +103,14 @@
         </div>
         <div class="fieldSeperator"></div>
         <div class="checkboxWrapper">
+            @Html.CheckBoxFor(model => model.ExistingCustomer) Are you an existing TrendPie user?
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            @Html.EditorFor(model => model.CurrentAmountPerCampaign, new { htmlAttributes = new { @class = "txtInput", placeholder = "Current Amount Per Campaign"}})
+        </div>
+        <div class="fieldSeperator"></div>
+        <div class="checkboxWrapper">
             @Html.CheckBoxFor(model => model.Agree) Yes, I have read and agree to the terms and conditions and privacy policy
         </div>
         <div class="fieldSeperator"></div>

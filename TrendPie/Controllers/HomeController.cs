@@ -101,6 +101,11 @@ namespace TrendPie.Controllers
             {
                 if (user.Agree)
                 {
+                    if (user.ExistingCustomer)
+                    {
+                        user.AmountPerCampaign = user.CurrentAmountPerCampaign;
+                    }
+
                     user.Role = "user";
                     UserRepository.Create(user);
                     return RedirectToAction("ThankYou");
