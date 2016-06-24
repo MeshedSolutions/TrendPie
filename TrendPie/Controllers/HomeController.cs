@@ -81,6 +81,13 @@ namespace TrendPie.Controllers
             return View();
         }
 
+        public ActionResult LogOut()
+        {
+            Session["User"] = null;
+
+            return RedirectToAction("Login");
+        }
+
         [HttpGet]
         public ActionResult Register()
         {
