@@ -106,5 +106,31 @@ namespace TrendPie.Repositories
                 }
             }
         }
+        public static void RequestAmountPerCampaignUpdate(int userID, int amountPerCampaign)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var user = db.Users.Find(userID);
+
+                if (user != null)
+                {
+                    user.AmountPerCampaignRequested = amountPerCampaign;
+                    db.SaveChanges();
+                }
+            }
+        }
+        public static void ClearAmountPerCampaignRequested(int userID)
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var user = db.Users.Find(userID);
+
+                if (user != null)
+                {
+                    user.AmountPerCampaignRequested = null;
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

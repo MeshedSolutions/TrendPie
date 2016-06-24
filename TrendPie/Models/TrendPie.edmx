@@ -58,6 +58,7 @@
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="AmountPerCampaignRequested" Type="int" />
         </EntityType>
         <EntityType Name="UserCampaign">
           <Key>
@@ -228,6 +229,7 @@
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SocialMediaAccounts" Relationship="TrendPie_Model.FK_SocialMediaAccount_User" FromRole="User" ToRole="SocialMediaAccount" />
           <NavigationProperty Name="UserCampaigns" Relationship="TrendPie_Model.FK_UserCampaign_User" FromRole="User" ToRole="UserCampaign" />
+          <Property Name="AmountPerCampaignRequested" Type="Int32" />
         </EntityType>
         <Association Name="FK_SocialMediaAccount_User">
           <End Type="TrendPie_Model.User" Role="User" Multiplicity="0..1" />
@@ -307,6 +309,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TrendPie_Model.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="AmountPerCampaignRequested" ColumnName="AmountPerCampaignRequested" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />

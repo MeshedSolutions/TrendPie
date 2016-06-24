@@ -52,7 +52,7 @@ namespace TrendPie.Controllers
 
             if (currentUser != null)
             {
-                UpdateAmountPerCampaign(user, currentUser);
+                RequestAmountPerCampaignUpdate(user, currentUser);
                 UpdatePayPalEmail(user, currentUser);
                 currentUser = UserRepository.GetByID(currentUser.Id);
                 Session["User"] = currentUser;
@@ -69,13 +69,12 @@ namespace TrendPie.Controllers
                 UserRepository.UpdatePayPalEmail(currentUser.Id, user.PayPalEmail);
             }
         }
-        private static void UpdateAmountPerCampaign(User user, User currentUser)
+        private static void RequestAmountPerCampaignUpdate(User user, User currentUser)
         {
             if (user.AmountPerCampaign != currentUser.AmountPerCampaign)
             {
-                UserRepository.UpdateStatus(currentUser.Id, "Pending");
                 if (user.AmountPerCampaign != null)
-                    UserRepository.UpdateAmountPerCampaign(currentUser.Id, user.AmountPerCampaign.Value);
+                    UserRepository.RequestAmountPerCampaignUpdate(currentUser.Id, user.AmountPerCampaign.Value);
             }
         }
     }
