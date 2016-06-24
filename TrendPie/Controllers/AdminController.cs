@@ -40,6 +40,8 @@ namespace TrendPie.Controllers
         public ActionResult UserProfile(User user)
         {
             UserRepository.UpdateStatus(user.Id, user.Status);
+            if (user.AmountPerCampaign != null)
+                UserRepository.UpdateAmountPerCampaign(user.Id, user.AmountPerCampaign.Value);
 
             return RedirectToAction("PendingInfluencers");
         }
