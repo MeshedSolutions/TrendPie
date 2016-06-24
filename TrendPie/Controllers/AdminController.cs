@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using TrendPie.Models;
@@ -120,7 +122,34 @@ namespace TrendPie.Controllers
 
         public FileContentResult Export(int campaignID)
         {
-            return null;
+            var file = new StringBuilder();
+            var campaign = CampaignRepository.GetById(campaignID);
+            var userCampaigns = UserCampaignRepository.GetAllForCampaign(campaignID);
+
+            if (userCampaigns.Any())
+            {
+                file.AppendLine(
+                    "\"PayPal Email\"," +
+                    "\"Rate\"," +
+                    "\"Currency\""
+                    );
+            }
+
+            foreach (var userCampaign in userCampaigns)
+            {
+                var user = UserRepository.GetByID(userCampaign.UserID);
+
+                if (user != null)
+                {
+                    file.AppendLine(
+                        "\"" + user.PayPalEmail + "\"," +
+                        "\"" + user.AmountPerCampaign + "\"," +
+                        "\"" + user.Country + "\""
+                        );
+                }
+            }
+
+            return File(new UTF8Encoding().GetBytes(file.ToString()), "text/csv", "mass pay " + campaign.Name + " " + campaign.ShortStartDate.Replace('/', '-') + ".csv");
         }
     }
 }

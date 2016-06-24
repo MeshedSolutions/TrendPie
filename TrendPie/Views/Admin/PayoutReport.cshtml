@@ -12,7 +12,7 @@
         {
             <div>
                 <div>
-                    <span class="campaignName">@campaign.Campaign.Name</span> <a href="" class="btn btn-default">EXPORT</a>
+                    <span class="campaignName">@campaign.Campaign.Name</span> <a href="@Url.Action("Export", new {campaignID = campaign.Campaign.Id})" class="btn btn-default">EXPORT</a>
                 </div>
                 <div class="timeLable">
                     Budget: $@campaign.Campaign.Budget
