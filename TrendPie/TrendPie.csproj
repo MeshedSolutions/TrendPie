@@ -167,6 +167,7 @@
     <Compile Include="Repositories\SocialMediaAccountRepository.cs" />
     <Compile Include="Repositories\UserCampaignRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Services\EmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
