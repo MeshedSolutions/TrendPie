@@ -1,0 +1,96 @@
+﻿@model TrendPie.Models.Campaign
+
+@{
+    ViewBag.Title = "Edit Campaign";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="formwrapper">
+    <h1>EDIT CAMPAIGN</h1>
+</div>
+@Html.Partial("_campaignMenu")
+
+<div class="clearme"></div>
+<div class="space10"></div>
+@using (@Html.BeginForm())
+{
+    <div class="formwrapper whiteBack">
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Active)
+        @Html.HiddenFor(model => model.DateCreated)
+        <div>
+            Client: @Html.EditorFor(model => model.Client, new {htmlAttributes = new {@class = "txtInput"}})
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            Name: @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "txtInput" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            Type:
+            @Html.DropDownListFor(
+                model => model.Type,
+                new SelectList(
+                    new List<Object>
+                    {
+                        new { value = "affiliate", text = "Affiliate"},
+                        new { value = "standard", text = "Standard"}
+                    },
+                    "value",
+                    "text"
+                    ),
+                new {  @class = "ddlInput"}
+                )
+        </div>
+        <div class="fieldSeperator"></div>
+        <div>
+            Affiliate Link: @Html.EditorFor(model => model.AffiliateLink, new { htmlAttributes = new { @class = "txtInput" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div class="lblWrapper">Campaign Start</div>
+        <div class="clearme"></div>
+        <div>
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "txtInput" } })
+        </div>
+        <div class="clearme"></div>
+        <div class="space15"></div>
+        <div class="lblWrapper">Campaign End</div>
+        <div class="clearme"></div>
+        <div>
+            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "txtInput" } })
+        </div>
+        <div class="clearme"></div>
+        <div class="fieldSeperator"></div>
+        <div>
+            Campaign Budget: @Html.EditorFor(model => model.Budget, new { htmlAttributes = new { @class = "txtInput" } })
+        </div>
+        <div class="fieldSeperator"></div>
+        <div class="lblWrapper">Campaign Status</div>
+        <div class="clearme"></div>
+        <div>
+            @Html.DropDownListFor(
+                model => model.Status,
+                new SelectList(
+                    new List<Object>
+                    {
+                        new { value = "true", text = "Active"},
+                        new { value = "false", text = "Inactive"}
+                    },
+                    "value",
+                    "text"
+                    ),
+                new { @class = "ddlInput" }
+                )
+        </div>
+        <div class="space35"></div>
+        <div class="clearme"></div>
+        <div class="space35"></div>
+    </div>
+    <div class="clearme"></div>
+    <div class="bg_createacct">
+        <div class="formwrapper">
+            <input type="submit" value="Update" class="bttnRegister" />
+            <div class="bttnArrow"></div>
+        </div>
+    </div>
+}

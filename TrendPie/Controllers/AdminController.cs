@@ -60,6 +60,21 @@ namespace TrendPie.Controllers
             return View(campaign);
         }
 
+        public ActionResult EditCampaign(int campaignID)
+        {
+            Campaign campaign = CampaignRepository.GetById(campaignID);
+
+            return View(campaign);
+        }
+
+        [HttpPost]
+        public ActionResult EditCampaign(Campaign campaign)
+        {
+            CampaignRepository.Update(campaign);
+
+            return RedirectToAction("CurrentCampaigns");
+        }
+
         public ActionResult CurrentCampaigns()
         {
             var viewModel = CampaignRepository.GetAllActive();
