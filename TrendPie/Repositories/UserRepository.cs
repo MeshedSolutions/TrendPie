@@ -66,6 +66,17 @@ namespace TrendPie.Repositories
             {
                 var userProfile = db.Users.Find(user.Id);
 
+                userProfile.FirstName = user.FirstName;
+                userProfile.LastName = user.LastName;
+                userProfile.DOB = user.DOB;
+                userProfile.Email = user.Email;
+                userProfile.Address1 = user.Address1;
+                userProfile.Address2 = user.Address2;
+                userProfile.Country = user.Country;
+                userProfile.State = user.State;
+                userProfile.Zip = user.Zip;
+                userProfile.PreferredContact = user.PreferredContact;
+
                 db.SaveChanges();
             }
         }
