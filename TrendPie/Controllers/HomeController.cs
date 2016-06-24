@@ -57,7 +57,7 @@ namespace TrendPie.Controllers
                         {
                             Session["User"] = existingUser;
 
-                            return RedirectToAction("Index", "Admin");
+                            return RedirectToAction("CurrentCampaigns", "Admin");
                         }
 
                         // Valid but not approved user
