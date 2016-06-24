@@ -12,28 +12,35 @@
     <div class="campaignContentWrap">
         <div class="clearme"></div>
         <div>
-            @foreach (var campaign in Model)
+            @if (Model.Any())
             {
-                <div class="campaignCloseItemWrap">
-                    <div class="ce_Wrap">
-                        <div class="campaignName">
-                            @campaign.Name
+                foreach (var campaign in Model)
+                {
+                    <div class="campaignCloseItemWrap">
+                        <div class="ce_Wrap">
+                            <div class="campaignName">
+                                @campaign.Name
+                            </div>
+                            <div class="campaignEarnings">
+                                <span class="timeLable">Earned:</span> $150
+                            </div>
                         </div>
-                        <div class="campaignEarnings">
-                            <span class="timeLable">Earned:</span> $150
+                        <div class="campaignEndWrap">
+                            <div class="campaignEndDay">
+                                @campaign.EndDay
+                            </div>
+                            <div class="campaignEndMonth">
+                                @campaign.EndMonthAbbreviation
+                            </div>
                         </div>
+                        <div class="clearme"></div>
+                        <div class="space15"></div>
                     </div>
-                    <div class="campaignEndWrap">
-                        <div class="campaignEndDay">
-                            @campaign.EndDay
-                        </div>
-                        <div class="campaignEndMonth">
-                            @campaign.EndMonthAbbreviation
-                        </div>
-                    </div>
-                    <div class="clearme"></div>
-                    <div class="space15"></div>
-                </div>
+                }
+            }
+            else
+            {
+                <div>No records found</div>
             }
         </div>
     </div>

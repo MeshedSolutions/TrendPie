@@ -10,25 +10,32 @@
 
 <div class="grayBack">
     <div class="campaignContentWrap">
-        @foreach (var campaign in Model)
+        @if (Model.Any())
         {
-            <div class="campaignOpenItemWrap">
-                <div class="campaignName">
-                    @campaign.Name
-                </div>
-                <div class="campaignStart">
-                    <span class="timeLable">Starts:</span> @campaign.ShortStartDate
-                </div>
-                <div class="campaignEnd">
-                    <span class="timeLable2">ENDING:</span> @campaign.ShortEndDate
-                </div>
-                <div class="optWrapper">
-                    @Html.ActionLink("Apply Now", "Accept", new { campaignID = campaign.Id })
+            foreach (var campaign in Model)
+            {
+                <div class="campaignOpenItemWrap">
+                    <div class="campaignName">
+                        @campaign.Name
+                    </div>
+                    <div class="campaignStart">
+                        <span class="timeLable">Starts:</span> @campaign.ShortStartDate
+                    </div>
+                    <div class="campaignEnd">
+                        <span class="timeLable2">ENDING:</span> @campaign.ShortEndDate
+                    </div>
+                    <div class="optWrapper">
+                        @Html.ActionLink("Apply Now", "Accept", new { campaignID = campaign.Id })
+                    </div>
+                    <div class="clearme"></div>
+                    <div class="space20"></div>
                 </div>
                 <div class="clearme"></div>
-                <div class="space20"></div>
-            </div>
-            <div class="clearme"></div>
+            }
+        }
+        else
+        {
+            <div>No records found</div>
         }
     </div>
     <div class="clearme"></div>

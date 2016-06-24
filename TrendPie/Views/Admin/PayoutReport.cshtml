@@ -10,26 +10,40 @@
     <input type="button" value="EXPORT">
 </div>
 <div>
-    @foreach (var campaign in Model)
+    @if (Model.Any())
     {
-        <div>
+        foreach (var campaign in Model)
+        {
             <div>
-                <input type="checkbox" name="selectCampaign" />@campaign.CampaignName
+                <div>
+                    <input type="checkbox" name="selectCampaign" />@campaign.CampaignName
+                </div>
+                <div>
+                    @if (campaign.Users.Any())
+                    {
+                        foreach (var user in campaign.Users)
+                        {
+                            <div>
+                                <div>
+                                    @user.FirstName @user.LastName
+                                </div>
+                                <div>
+                                    @user.AmountPerCampaign
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div>No influencers signed up</div>
+                    }
+                </div>
             </div>
-            <div>
-                @foreach (var user in campaign.Users)
-                {
-                    <div>
-                        <div>
-                            @user.FirstName @user.LastName
-                        </div>
-                        <div>
-                            @user.AmountPerCampaign
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
+        }
+    }
+    else
+    {
+        <div>No records found</div>
     }
 </div>
 
