@@ -1,4 +1,6 @@
-﻿namespace TrendPie.Models
+﻿using System.Globalization;
+
+namespace TrendPie.Models
 {
     public partial class Campaign
     {
@@ -8,12 +10,10 @@
             {
                 if (EndDate != null)
                 {
-                    return EndDate.Value.Day.ToString();
+                    return EndDate.Value.Day.ToString(CultureInfo.InvariantCulture);
                 }
-                else
-                {
-                    return "";
-                }
+
+                return "";
             }
         }
         public string EndMonthAbbreviation
@@ -66,6 +66,28 @@
                 }
 
                 return abbreviation;
+            }
+        }
+        public string ShortStartDate
+        {
+            get
+            {
+                string date = string.Empty;
+
+                if (StartDate != null) date = StartDate.Value.ToShortDateString();
+
+                return date;
+            }
+        }
+        public string ShortEndDate
+        {
+            get
+            {
+                string date = string.Empty;
+
+                if (EndDate != null) date = EndDate.Value.ToShortDateString();
+
+                return date;
             }
         }
     }

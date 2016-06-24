@@ -1,17 +1,19 @@
 ﻿@model IEnumerable<TrendPie.Models.Campaign>
 
 <div class="clearme"></div>
-    @foreach (var campaign in Model)
+@if (Model.Any())
+{
+    foreach (var campaign in Model)
     {
         <div class="campaignOpenItemWrap">
             <div class="campaignName">
                 @campaign.Name
             </div>
             <div class="campaignStart">
-                <span class="timeLable">STARTS:</span> @campaign.StartDate
+                <span class="timeLable">STARTS:</span> @campaign.ShortStartDate
             </div>
             <div class="campaignEnd">
-                <span class="timeLable2">ENDING:</span> @campaign.EndDate
+                <span class="timeLable2">ENDING:</span> @campaign.ShortEndDate
             </div>
             <div class="affiliateLinkWrap">
                 <input type="text" class="affiliateLink" placeholder="Affiliate Link">
@@ -19,16 +21,21 @@
             <div class="space20"></div>
         </div>
     }
+}
+else
+{
+    <div>No records found</div>
+}
 
-    <div class="clearme"></div>
-    <div class="clearme"></div>
-    <a href="/Campaigns/Live">
-        <div class="bttnViewAllWrap">
-            <div class="bttnViewAllBlu">
-                VIEW All
-                <div class="bttnViewAllArrow"></div>
-            </div>
+<div class="clearme"></div>
+<div class="clearme"></div>
+<a href="/Campaigns/Live">
+    <div class="bttnViewAllWrap">
+        <div class="bttnViewAllBlu">
+            VIEW All
+            <div class="bttnViewAllArrow"></div>
         </div>
-    </a>
-    <div class="clearme"></div>
-    <div class="Space25"></div>
+    </div>
+</a>
+<div class="clearme"></div>
+<div class="Space25"></div>

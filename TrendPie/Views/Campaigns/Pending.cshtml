@@ -17,10 +17,10 @@
                     @campaign.Name
                 </div>
                 <div class="campaignStart">
-                    <span class="timeLable">Starts:</span> @campaign.StartDate
+                    <span class="timeLable">Starts:</span> @campaign.ShortStartDate
                 </div>
                 <div class="campaignEnd">
-                    <span class="timeLable2">ENDING:</span> @campaign.EndDate
+                    <span class="timeLable2">ENDING:</span> @campaign.ShortEndDate
                 </div>
                 <div class="optWrapper">
                     @Html.ActionLink("Apply Now", "Accept", new { campaignID = campaign.Id })
