@@ -97,7 +97,7 @@ namespace TrendPie.Controllers
         public ActionResult PayoutReport()
         {
             var viewModel = new List<PayoutReportViewModel>();
-            var campaigns = CampaignRepository.GetAll().OrderByDescending(i => i.DateCreated);
+            var campaigns = CampaignRepository.GetAllCreatedInLast30Days().OrderByDescending(i => i.DateCreated);
 
             foreach (var campaign in campaigns)
             {

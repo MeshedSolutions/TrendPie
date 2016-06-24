@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using TrendPie.Models;
@@ -12,6 +13,14 @@ namespace TrendPie.Repositories
             using (var db = new TrendPie_Entities())
             {
                 return db.Campaigns.ToList();
+            }
+        }
+        public static List<Campaign> GetAllCreatedInLast30Days()
+        {
+            using (var db = new TrendPie_Entities())
+            {
+                var timeFrame = DateTime.Now.Subtract(new TimeSpan(30, 0, 0, 0));
+                return db.Campaigns.Where(i => i.DateCreated >= timeFrame).ToList();
             }
         }
         public static List<Campaign> GetAllPending()
