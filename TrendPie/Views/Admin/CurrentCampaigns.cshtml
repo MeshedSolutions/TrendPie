@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<script>
+    function copyToClipboard(text) {
+        window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+    }
+</script>
 
 @Html.Partial("_campaignMenu")
 <div class="grayBack">
@@ -28,6 +33,7 @@
                         <div class="editWrapper">
                             <a href="@Url.Action("EditCampaign", new {campaignID = campaign.Id})">EDIT</a>
                             <a href="@Url.Action("EmailCampaignToList", new {campaignID = campaign.Id})">EMAIL</a>
+                            <a href="#" onclick="copyToClipboard('http://www.trendpie.com/Campaigns/Pending')">Copy</a>
                         </div>
                         <div class="space20"></div>
                         <div class="beginEndWrap">
