@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using TrendPie.Models;
 using TrendPie.Repositories;
+using TrendPie.Services;
 
 namespace TrendPie.Controllers
 {
@@ -150,6 +151,16 @@ namespace TrendPie.Controllers
             }
 
             return File(new UTF8Encoding().GetBytes(file.ToString()), "text/csv", "mass pay " + campaign.Name + " " + campaign.ShortStartDate.Replace('/', '-') + ".csv");
+        }
+
+        public ActionResult EmailCampaignToList(int campaignID)
+        {
+            if (campaignID > 0)
+            {
+                EmailService.SendNewCampaignAvailableEmailToUsers(campaignID);
+            }
+
+            return RedirectToAction("CurrentCampaigns");
         }
     }
 }
