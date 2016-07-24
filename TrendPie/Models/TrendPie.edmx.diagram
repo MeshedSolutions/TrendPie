@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ab2d03f8ec604420a5c8ad507ed9fd70" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="TrendPie_Model.Campaign" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrendPie_Model.SocialMediaAccount" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrendPie_Model.UserCampaign" Width="1.5" PointX="7" PointY="1.75" />
-        <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_Campaign" />
-        <EntityTypeShape EntityType="TrendPie_Model.User" Width="1.5" PointX="5" PointY="0.75" />
-        <AssociationConnector Association="TrendPie_Model.FK_SocialMediaAccount_User" />
-        <AssociationConnector Association="TrendPie_Model.FK_UserCampaign_User" />
-        </Diagram>
+      <Diagram DiagramId="14c92aac6bde43e8878a8e2bb99c6138" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="TrendPie_dbModel.Campaign" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrendPie_dbModel.SocialMediaAccount" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrendPie_dbModel.User" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrendPie_dbModel.UserCampaign" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="TrendPie_dbModel.FK_UserCampaign_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="TrendPie_dbModel.FK_SocialMediaAccount_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TrendPie_dbModel.FK_UserCampaign_User" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

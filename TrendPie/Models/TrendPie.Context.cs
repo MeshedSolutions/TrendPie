@@ -13,10 +13,10 @@ namespace TrendPie.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TrendPie_Entities : DbContext
+    public partial class TrendPie_dbEntities : DbContext
     {
-        public TrendPie_Entities()
-            : base("name=TrendPie_Entities")
+        public TrendPie_dbEntities()
+            : base("name=TrendPie_dbEntities")
         {
         }
     
@@ -27,7 +27,7 @@ namespace TrendPie.Models
     
         public virtual DbSet<Campaign> Campaigns { get; set; }
         public virtual DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
-        public virtual DbSet<UserCampaign> UserCampaigns { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserCampaign> UserCampaigns { get; set; }
     }
 }

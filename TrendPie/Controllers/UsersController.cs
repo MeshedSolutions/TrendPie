@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TrendPie.Models;
 
@@ -12,7 +8,7 @@ namespace TrendPie.Controllers
 {
     public class UsersController : Controller
     {
-        private TrendPie_Entities db = new TrendPie_Entities();
+        private TrendPie_dbEntities db = new TrendPie_dbEntities();
 
         // GET: Users
         public ActionResult Index()

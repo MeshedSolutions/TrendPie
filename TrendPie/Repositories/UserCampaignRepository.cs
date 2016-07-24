@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using TrendPie.Models;
 
 namespace TrendPie.Repositories
@@ -10,7 +9,7 @@ namespace TrendPie.Repositories
     {
         public static void AcceptCampaign(int campaignID, int userID)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var userCampaign = db.UserCampaigns.Create();
                 var user = db.Users.Find(userID);
@@ -50,7 +49,7 @@ namespace TrendPie.Repositories
         }
         public static List<UserCampaign> GetAllForCampaign(int campaignID)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.UserCampaigns.Where(i => i.CampaignID == campaignID).ToList();
             }

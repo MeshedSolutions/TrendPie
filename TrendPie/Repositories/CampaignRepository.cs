@@ -10,14 +10,14 @@ namespace TrendPie.Repositories
     {
         public static List<Campaign> GetAll()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.ToList();
             }
         }
         public static List<Campaign> GetAllCreatedInLast30Days()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var timeFrame = DateTime.Now.Subtract(new TimeSpan(30, 0, 0, 0));
                 return db.Campaigns.Where(i => i.DateCreated >= timeFrame).ToList();
@@ -25,35 +25,35 @@ namespace TrendPie.Repositories
         }
         public static List<Campaign> GetAllPending()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Where(i => i.Status == "Pending").ToList();
             }
         }
         public static List<Campaign> GetAllComplete()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Where(i => i.Status == "Complete").ToList();
             }
         }
         public static List<Campaign> GetAllActive()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Where(i => i.Active == "true").ToList();
             }
         }
         public static List<Campaign> GetAllLive()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Where(i => i.Status == "Live").ToList();
             }
         }
         public static List<Campaign> GetAllActiveLiveForUser(User user)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 List<Campaign> campaigns = (
                     from campaign in db.Campaigns
@@ -68,7 +68,7 @@ namespace TrendPie.Repositories
         }
         public static List<Campaign> GetAllActiveCompleteForUser(User user)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 List<Campaign> campaigns = (
                     from campaign in db.Campaigns
@@ -83,7 +83,7 @@ namespace TrendPie.Repositories
         }
         public static List<Campaign> GetAllActivePendingForUser(User user)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var campaigns = db.Campaigns.Where(i => i.Active == "true" && i.Status == "live").ToList();
                 var userCampaigns = db.UserCampaigns.Where(i => i.UserID == user.Id).Select(i => i.CampaignID).ToList();
@@ -95,21 +95,21 @@ namespace TrendPie.Repositories
         }
         public static List<Campaign> GetTop5ActiveLive()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Where(i => i.Active == "true" && i.Status == "live").Take(5).ToList();
             }
         }
         public static List<Campaign> GetTop5ActiveComplete()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Where(i => i.Active == "true" && i.Status == "complete").Take(5).ToList();
             }
         }
         public static List<Campaign> GetTop5ActiveLiveForUser(User user)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 List<Campaign> campaigns = (
                     from campaign in db.Campaigns
@@ -124,7 +124,7 @@ namespace TrendPie.Repositories
         }
         public static List<Campaign> GetTop5ActiveCompleteForUser(User user)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 List<Campaign> campaigns = (
                     from campaign in db.Campaigns
@@ -139,14 +139,14 @@ namespace TrendPie.Repositories
         }
         public static Campaign GetById(int campaignId)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Campaigns.Find(campaignId);
             }
         }
         public static void Create(Campaign campaign)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 db.Campaigns.Add(campaign);
                 db.SaveChanges();
@@ -154,7 +154,7 @@ namespace TrendPie.Repositories
         }
         public static Campaign Update(Campaign campaign)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 db.Entry(campaign).State = EntityState.Modified;
                 db.SaveChanges();

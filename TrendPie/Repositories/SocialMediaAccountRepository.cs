@@ -8,7 +8,7 @@ namespace TrendPie.Repositories
     {
         public static List<SocialMediaAccount> GetAll()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.SocialMediaAccounts.ToList();
             }

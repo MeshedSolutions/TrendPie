@@ -11,7 +11,7 @@ namespace TrendPie.Repositories
         {
             user.Status = "Pending";
 
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -19,35 +19,35 @@ namespace TrendPie.Repositories
         }
         public static User GetByEmail(string email)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Users.FirstOrDefault(i => i.Email == email);
             }
         }
         public static User GetByID(int userID)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Users.Find(userID);
             }
         }
         public static List<User> GetAllActive()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Users.Where(i => i.Status == "Approved").ToList();
             }
         }
         public static List<User> GetAllPending()
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 return db.Users.Where(i => i.Status == "Pending").ToList();
             }
         }
         public static void UpdateStatus(int userID, string status)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var user = db.Users.Find(userID);
 
@@ -62,7 +62,7 @@ namespace TrendPie.Repositories
         }
         public static void UpdateUserProfile(User user)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var userProfile = db.Users.Find(user.Id);
 
@@ -82,7 +82,7 @@ namespace TrendPie.Repositories
         }
         public static void UpdatePayPalEmail(int userID, string payPalEmail)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var user = db.Users.Find(userID);
 
@@ -95,7 +95,7 @@ namespace TrendPie.Repositories
         }
         public static void UpdateAmountPerCampaign(int userID, int amountPerCampaign)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var user = db.Users.Find(userID);
 
@@ -108,7 +108,7 @@ namespace TrendPie.Repositories
         }
         public static void RequestAmountPerCampaignUpdate(int userID, int amountPerCampaign)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var user = db.Users.Find(userID);
 
@@ -121,7 +121,7 @@ namespace TrendPie.Repositories
         }
         public static void ClearAmountPerCampaignRequested(int userID)
         {
-            using (var db = new TrendPie_Entities())
+            using (var db = new TrendPie_dbEntities())
             {
                 var user = db.Users.Find(userID);
 

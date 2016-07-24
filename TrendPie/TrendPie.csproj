@@ -213,6 +213,8 @@
     <Content Include="Models\TrendPie.edmx.diagram">
       <DependentUpon>TrendPie.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\trendpie - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\trendpie - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TrendPie.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
