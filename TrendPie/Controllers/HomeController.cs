@@ -97,19 +97,16 @@ namespace TrendPie.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
-            if (ModelState.IsValid)
+            if (user.Agree)
             {
-                if (user.Agree)
+                if (user.ExistingCustomer)
                 {
-                    if (user.ExistingCustomer)
-                    {
-                        user.AmountPerCampaign = user.CurrentAmountPerCampaign;
-                    }
-
-                    user.Role = "user";
-                    UserRepository.Create(user);
-                    return RedirectToAction("ThankYou");
+                    user.AmountPerCampaign = user.CurrentAmountPerCampaign;
                 }
+
+                user.Role = "user";
+                UserRepository.Create(user);
+                return RedirectToAction("ThankYou");
             }
 
             return View(user);
