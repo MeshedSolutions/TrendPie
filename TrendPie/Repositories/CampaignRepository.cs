@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Microsoft.Ajax.Utilities;
 using TrendPie.Models;
 
 namespace TrendPie.Repositories
@@ -148,6 +149,7 @@ namespace TrendPie.Repositories
         {
             using (var db = new TrendPie_dbEntities())
             {
+                campaign.Status = "live";
                 db.Campaigns.Add(campaign);
                 db.SaveChanges();
             }

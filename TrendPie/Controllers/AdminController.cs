@@ -61,9 +61,12 @@ namespace TrendPie.Controllers
         {
             if (ModelState.IsValid)
             {
+                campaign.StartDate = DateTime.Parse(campaign.StartDay + "/" + campaign.StartMonth + "/" + campaign.EndYear);
+                campaign.EndDate = DateTime.Parse(campaign.EndDay + "/" + campaign.EndMonth + "/" + campaign.EndYear);
+
                 CampaignRepository.Create(campaign);
             }
-            return View(campaign);
+            return RedirectToAction("CurrentCampaigns");
         }
 
         public ActionResult EditCampaign(int campaignID)
