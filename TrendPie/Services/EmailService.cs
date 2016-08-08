@@ -142,7 +142,8 @@ namespace TrendPie.Services
                 var smtp = new SmtpClient(serverAddress)
                 {
                     Credentials = new System.Net.NetworkCredential(userName, password),
-                    Port = emailPort
+                    Port = emailPort,
+                    EnableSsl = true
                 };
 
                 smtp.Send(message);
